@@ -7,7 +7,7 @@
   .hero {
     min-height: 100svh;
     gap: clamp(42px, 5vw, 76px);
-    padding: 45px 0 53px;
+    padding: 73px 0 53px;
   }
   .hero-lead {
     font-size: 0.96rem;
