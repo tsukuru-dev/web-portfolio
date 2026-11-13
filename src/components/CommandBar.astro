@@ -1,0 +1,23 @@
+---
+interface Props {
+  current?: 'home' | 'enquire';
+}
+
+const { current = 'home' } = Astro.props;
+const homePrefix = current === 'home' ? '' : '/';
+---
+
+<header class="command-shell">
+  <nav class="command-bar" aria-label="Primary navigation">
+    <div class="command-links">
+      <a href={`${homePrefix}#top`}>Home</a>
+      <a href={`${homePrefix}#work`}>Work</a>
+      <a class="command-link-optional" href={`${homePrefix}#approach`}>Approach</a>
+      <a href={`${homePrefix}#studio`}>Studio</a>
+    </div>
+    <span class="command-divider" aria-hidden="true"></span>
+    <a class="command-action" href="/enquire/" aria-current={current === 'enquire' ? 'page' : undefined}>
+      Enquire
+    </a>
+  </nav>
+</header>

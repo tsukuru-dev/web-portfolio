@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CommandBar from '../components/CommandBar.astro';
+import { budgets, projectTypes, timelines } from '../data/enquiry';
+import '../styles/enquire.css';
+
+const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+<Layout
+  title="Start a project — Madhatter Studio"
+  description="Tell Madhatter Studio about your website, brand or digital design project."
+>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <CommandBar current="enquire" />
+
+  <main id="main" class="enquiry-page" tabindex="-1">
+    <section class="enquiry-intro shell" id="top">
+      <div>
+        <p class="eyebrow"><span></span> Start a project</p>
+        <h1>Tell me what<br />you’re <em>building.</em></h1>
+      </div>
+      <div class="enquiry-intro-note">
+        <span>01</span>
+        <p>A few thoughtful questions now means a much more useful first conversation later.</p>
+      </div>
+    </section>
+
+    <section class="enquiry-layout shell">
+      <aside class="enquiry-aside">
+        <p class="eyebrow">Good to know</p>
+        <h2>What happens next?</h2>
+        <ol>
+          <li><span>01</span><p>I’ll read through the details and make sure the project feels like a good fit.</p></li>
+          <li><span>02</span><p>You’ll hear back with a few initial thoughts and the clearest next step.</p></li>
+          <li><span>03</span><p>If it makes sense, we’ll arrange a relaxed discovery call and shape the brief together.</p></li>
+        </ol>
+        <p class="availability-note"><i></i> Currently considering new projects.</p>
+      </aside>
+
+      <form id="enquiry-form" class="enquiry-form" action="/api/enquiry" method="post" novalidate>
+        <div class="form-heading">
+          <p class="eyebrow">Project enquiry</p>
+          <p>Required fields are marked with an asterisk.</p>
+        </div>
+
+        <section class="form-section" aria-labelledby="about-you-title">
+          <div class="form-section-title"><span>01</span><h2 id="about-you-title">About you</h2></div>
+          <div class="field-grid">
+            <label class="field"><span>Your name *</span><input name="name" autocomplete="name" maxlength="100" required /></label>
+            <label class="field"><span>Business or brand</span><input name="business" autocomplete="organization" maxlength="120" /></label>
+          </div>
+          <div class="field-grid">
+            <label class="field"><span>Email address *</span><input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+            <label class="field"><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" maxlength="30" /></label>
+          </div>
+          <label class="field"><span>Current website</span><input name="websiteUrl" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="yourwebsite.co.uk" /></label>
+        </section>
+
+        <section class="form-section" aria-labelledby="project-title">
+          <div class="form-section-title"><span>02</span><h2 id="project-title">The project</h2></div>
+          <fieldset class="choice-field project-type-field">
+            <legend>What do you need? *</legend>
+            <p>Choose everything that applies.</p>
+            <div class="choice-grid">
+              {projectTypes.map((type) => (
+                <label class="choice"><input type="checkbox" name="projectType" value={type} /><span>{type}</span><i>✓</i></label>
+              ))}
+            </div>
+          </fieldset>
+          <label class="field"><span>Tell me about the idea *</span><textarea name="message" rows="7" maxlength="3000" required placeholder="What are you building, what needs to change, and what would a brilliant result look like?"></textarea></label>
+        </section>
+
+        <section class="form-section" aria-labelledby="practical-title">
+          <div class="form-section-title"><span>03</span><h2 id="practical-title">The practical bits</h2></div>
+          <div class="select-grid">
+            <label class="field"><span>Working budget *</span><select name="budget" required><option value="">Choose a range</option>{budgets.map((budget) => <option value={budget}>{budget}</option>)}</select></label>
+            <label class="field"><span>Ideal timeline *</span><select name="timeline" required><option value="">Choose a timeline</option>{timelines.map((timeline) => <option value={timeline}>{timeline}</option>)}</select></label>
+          </div>
+        </section>
+
+        <div class="honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        {turnstileKey && <><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script><div class="cf-turnstile" data-sitekey={turnstileKey} data-action="enquiry" data-theme="light"></div></>}
+
+        <div id="form-errors" class="form-errors" role="alert" tabindex="-1" hidden>
+          <strong>Please check the form:</strong><ul></ul>
+        </div>
+        <div class="form-submit">
+          <p>By submitting, you agree that your details can be used to respond to this enquiry. <a href="/privacy/">Privacy notice</a>.</p>
+          <button class="button" type="submit">Send project enquiry <span>↗</span></button>
+        </div>
+        <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+        <noscript><p class="form-status">Please enable JavaScript to complete the spam protection and submit your enquiry.</p></noscript>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-brand"><a class="brand" href="/"><span class="brand-word"><span>Mad</span><em>hatter</em></span><span class="brand-tag">Creative studio</span></a><p>Distinctive websites for ambitious businesses.</p></div>
+    <div><h3>Explore</h3><a href="/#work">Selected work</a><a href="/#studio">The studio</a></div>
+    <div><h3>Find me</h3><a href="#">Instagram ↗</a><a href="#">LinkedIn ↗</a></div>
+    <small>© 2026 Madhatter Studio</small>
+  </footer>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>('#enquiry-form');
+    if (form) {
+      const projectChecks = [...form.querySelectorAll<HTMLInputElement>('input[name="projectType"]')];
+      const projectField = form.querySelector<HTMLElement>('.project-type-field')!;
+      const errors = document.querySelector<HTMLElement>('#form-errors')!;
+      const errorList = errors.querySelector<HTMLUListElement>('ul')!;
+      const status = document.querySelector<HTMLElement>('#form-status')!;
+
+      const clearErrors = () => {
+        form.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
+        errorList.replaceChildren();
+        errors.hidden = true;
+      };
+      const addError = (field: HTMLElement, message: string) => {
+        field.setAttribute('aria-invalid', 'true');
+        const item = document.createElement('li');
+        item.textContent = message;
+        errorList.append(item);
+      };
+      const validate = () => {
+        clearErrors();
+        const requiredFields = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[required]')];
+        requiredFields.forEach((field) => {
+          if (!field.value.trim() || !field.validity.valid) addError(field, `Please check ${field.closest('label')?.querySelector('span')?.textContent?.replace('*', '').trim().toLowerCase() || 'this field'}.`);
+        });
+        if (!projectChecks.some((field) => field.checked)) addError(projectField, 'Choose at least one project type.');
+        errors.hidden = errorList.children.length === 0;
+        return errors.hidden;
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = '';
+        if (!validate()) { errors.focus(); return; }
+        if (!document.querySelector('.cf-turnstile')) {
+          status.textContent = 'Online enquiries are not configured yet. Add the Turnstile keys to enable submissions.';
+          status.focus();
+          return;
+        }
+        const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+        button.disabled = true;
+        status.textContent = 'Sending your enquiry…';
+        try {
+          const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || 'The enquiry could not be sent. Please try again.');
+          form.reset();
+          clearErrors();
+          status.textContent = 'Enquiry received. I’ll be in touch after reviewing the details.';
+          (window as Window & { turnstile?: { reset: () => void } }).turnstile?.reset();
+        } catch (error) {
+          status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+        } finally {
+          button.disabled = false;
+          status.focus();
+        }
+      });
+    }
+  </script>
+</Layout>

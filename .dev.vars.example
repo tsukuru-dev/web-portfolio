@@ -1,0 +1,5 @@
+# Copy to .dev.vars for local Cloudflare testing. Never commit real secrets.
+SITE_ORIGIN=http://localhost:8787
+EMAIL_FROM=
+EMAIL_TO=
+TURNSTILE_SECRET_KEY=
