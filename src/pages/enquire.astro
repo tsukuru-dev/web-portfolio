@@ -18,7 +18,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <section class="enquiry-intro shell" id="top">
       <div>
         <p class="eyebrow"><span></span> Start a project</p>
-        <h1>Tell me what<br />you’re <em>building.</em></h1>
+        <h1>Tell us what<br />you’re <em>building.</em></h1>
       </div>
       <div class="enquiry-intro-note">
         <span>01</span>
@@ -31,7 +31,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         <p class="eyebrow">Good to know</p>
         <h2>What happens next?</h2>
         <ol>
-          <li><span>01</span><p>I’ll read through the details and make sure the project feels like a good fit.</p></li>
+          <li><span>01</span><p>We’ll read through the details and make sure the project feels like a good fit.</p></li>
           <li><span>02</span><p>You’ll hear back with a few initial thoughts and the clearest next step.</p></li>
           <li><span>03</span><p>If it makes sense, we’ll arrange a relaxed discovery call and shape the brief together.</p></li>
         </ol>
@@ -68,7 +68,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
               ))}
             </div>
           </fieldset>
-          <label class="field"><span>Tell me about the idea *</span><textarea name="message" rows="7" maxlength="3000" required placeholder="What are you building, what needs to change, and what would a brilliant result look like?"></textarea></label>
+          <label class="field"><span>Tell us about the idea *</span><textarea name="message" rows="7" maxlength="3000" required placeholder="What are you building, what needs to change, and what would a brilliant result look like?"></textarea></label>
         </section>
 
         <section class="form-section" aria-labelledby="practical-title">
@@ -98,7 +98,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <footer class="site-footer shell">
     <div class="footer-brand"><a class="brand" href="/"><span class="brand-word"><span>Mad</span><em>hatter</em></span><span class="brand-tag">Creative studio</span></a><p>Distinctive websites for ambitious businesses.</p></div>
     <div><h3>Explore</h3><a href="/#work">Selected work</a><a href="/#studio">The studio</a></div>
-    <div><h3>Find me</h3><a href="#">Instagram ↗</a><a href="#">LinkedIn ↗</a></div>
+    <div><h3>Find us</h3><a href="#">Instagram ↗</a><a href="#">LinkedIn ↗</a></div>
     <small>© 2026 Madhatter Studio</small>
   </footer>
 
@@ -151,7 +151,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           if (!response.ok) throw new Error(result.error || 'The enquiry could not be sent. Please try again.');
           form.reset();
           clearErrors();
-          status.textContent = 'Enquiry received. I’ll be in touch after reviewing the details.';
+          status.textContent = 'Enquiry received. We’ll be in touch after reviewing the details.';
           (window as Window & { turnstile?: { reset: () => void } }).turnstile?.reset();
         } catch (error) {
           status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';

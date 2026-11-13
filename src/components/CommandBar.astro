@@ -11,9 +11,9 @@ const homePrefix = current === 'home' ? '' : '/';
   <nav class="command-bar" aria-label="Primary navigation">
     <div class="command-links">
       <a href={`${homePrefix}#top`}>Home</a>
-      <a href={`${homePrefix}#work`}>Work</a>
       <a class="command-link-optional" href={`${homePrefix}#approach`}>Approach</a>
-      <a href={`${homePrefix}#studio`}>Studio</a>
+      <a href={`${homePrefix}#work`}>Work</a>
+      <a href={`${homePrefix}#studio`} data-studio-link>Studio</a>
     </div>
     <span class="command-divider" aria-hidden="true"></span>
     <a class="command-action" href="/enquire/" aria-current={current === 'enquire' ? 'page' : undefined}>
@@ -21,3 +21,22 @@ const homePrefix = current === 'home' ? '' : '/';
     </a>
   </nav>
 </header>
+
+<script>
+  const studioLink = document.querySelector<HTMLAnchorElement>('[data-studio-link]');
+
+  studioLink?.addEventListener('click', (event) => {
+    const destination = new URL(studioLink.href);
+    if (destination.pathname !== window.location.pathname) return;
+
+    const studio = document.querySelector<HTMLElement>('#studio');
+    if (!studio) return;
+
+    event.preventDefault();
+    history.pushState(null, '', '#studio');
+    studio.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: window.innerWidth <= 700 ? 'start' : 'center',
+    });
+  });
+</script>
