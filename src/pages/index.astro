@@ -84,7 +84,7 @@ const caseStudies = {
       </div>
     </section>
 
-    <section class="principles shell" id="approach" aria-labelledby="principles-title">
+    <section class="principles shell" id="philosophy" aria-labelledby="principles-title">
       <div class="principles-heading">
         <p class="eyebrow">The thinking behind the work</p>
         <h2 id="principles-title">Three things we care about.</h2>
@@ -98,6 +98,21 @@ const caseStudies = {
             <p>{principle.text}</p>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section class="approach-section" id="approach" aria-labelledby="process-title">
+      <div class="process shell">
+        <div class="process-copy">
+          <p class="eyebrow">How we work</p>
+          <h2 id="process-title">Clear process.<br />No mystery.</h2>
+          <p>Strategy, design and development stay connected from the first conversation to launch.</p>
+        </div>
+        <ol>
+          <li><span>01</span><div><h3>Find the sharpest idea</h3><p>We clarify what makes the business valuable, who needs to care and what the website must achieve.</p></div></li>
+          <li><span>02</span><div><h3>Build the visual world</h3><p>Direction, type, colour, imagery and layout come together into a system that feels genuinely yours.</p></div></li>
+          <li><span>03</span><div><h3>Refine every detail</h3><p>We develop, test and polish the experience across screens until the whole thing feels effortless.</p></div></li>
+        </ol>
       </div>
     </section>
 
@@ -178,19 +193,6 @@ const caseStudies = {
     </dialog>
 
     <script id="case-study-data" type="application/json" set:html={JSON.stringify(caseStudies)}></script>
-
-    <section class="process shell" aria-labelledby="process-title">
-      <div class="process-copy">
-        <p class="eyebrow">02 / How we work</p>
-        <h2 id="process-title">Clear process.<br />No mystery.</h2>
-        <p>Strategy, design and development stay connected from the first conversation to launch.</p>
-      </div>
-      <ol>
-        <li><span>01</span><div><h3>Find the sharpest idea</h3><p>We clarify what makes the business valuable, who needs to care and what the website must achieve.</p></div></li>
-        <li><span>02</span><div><h3>Build the visual world</h3><p>Direction, type, colour, imagery and layout come together into a system that feels genuinely yours.</p></div></li>
-        <li><span>03</span><div><h3>Refine every detail</h3><p>We develop, test and polish the experience across screens until the whole thing feels effortless.</p></div></li>
-      </ol>
-    </section>
 
     <section class="studio-section" id="studio">
       <div class="studio-grid shell">
