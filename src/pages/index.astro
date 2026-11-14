@@ -27,24 +27,24 @@ const caseStudies = {
     summary: 'A bold restaurant concept bringing Mexican street-food energy and Indian flavour together in one unmistakable digital identity.',
     brief: 'Create a lively, appetite-led website that explains the fusion immediately, feels independent rather than corporate, and gives a new restaurant a memorable first impression.',
     goals: ['Make the Mexican–Indian concept instantly understandable', 'Put signature food and personality at the centre', 'Make menus, location details and ordering actions easy to find', 'Translate the atmosphere cleanly across mobile and desktop'],
-    fonts: 'Manrope for bold, direct headlines · Fraunces Italic for warmth and flavour',
-    colours: [{ name: 'Saffron', value: '#E8B746' }, { name: 'Chilli', value: '#CB5B3E' }, { name: 'Cocoa', value: '#39241D' }, { name: 'Cream', value: '#FFF1DA' }],
+    typography: [{ role: 'Display heading', font: 'Manrope', style: 'Bold' }, { role: 'Editorial accent', font: 'Fraunces', style: 'Semibold italic' }, { role: 'Eyebrow', font: 'Manrope', style: 'Bold uppercase' }, { role: 'Body and UI', font: 'Manrope', style: 'Regular / semibold' }],
+    colours: [{ name: 'Terracotta', value: '#D35C43' }, { name: 'Saffron', value: '#F3BE45' }, { name: 'Peach', value: '#E79E87' }, { name: 'Forest', value: '#315344' }, { name: 'Cream', value: '#F4D4B8' }, { name: 'Cocoa', value: '#3D2924' }],
   },
   fjd: {
     name: 'FJD Autos',
     summary: 'A cleaner, friendlier workshop identity designed to make a trusted family-run garage feel as dependable online as it does in person.',
     brief: 'Reframe an independent garage around clarity, trust and long-term care. The website needs to reassure drivers, explain services without jargon and make booking feel straightforward.',
     goals: ['Build trust before a customer picks up the phone', 'Present services in clear, everyday language', 'Make location, opening hours and booking details effortless to find', 'Balance workshop character with a polished professional finish'],
-    fonts: 'Manrope for confident headlines · DM Sans for practical, highly readable information',
-    colours: [{ name: 'Workshop green', value: '#183B32' }, { name: 'Signal lime', value: '#D8EF79' }, { name: 'Sage', value: '#AABB91' }, { name: 'Chalk', value: '#F7F7EF' }],
+    typography: [{ role: 'Display heading', font: 'Manrope', style: 'Bold' }, { role: 'Section heading', font: 'Manrope', style: 'Medium' }, { role: 'Eyebrow', font: 'Manrope', style: 'Bold uppercase' }, { role: 'Body and UI', font: 'DM Sans', style: 'Regular / semibold' }],
+    colours: [{ name: 'Workshop green', value: '#16463B' }, { name: 'Signal lime', value: '#D9F36A' }, { name: 'Warm chalk', value: '#F4F5EC' }, { name: 'Pale sage', value: '#DDE5D4' }, { name: 'Muted grey', value: '#6E746B' }],
   },
   nails: {
     name: 'KT Nails & Spa',
     summary: 'A soft, polished salon concept built around calm, care and an everyday sense of luxury.',
     brief: 'Create a serene digital home that feels premium without becoming intimidating. The design should showcase treatments, communicate care and turn casual interest into confident bookings.',
     goals: ['Create an immediate feeling of calm and quality', 'Show treatments and pricing in an easy-to-scan format', 'Give photography enough space to sell the finish', 'Keep booking and salon information close at hand on every screen'],
-    fonts: 'Manrope for clean structure · Fraunces Italic for a softer editorial accent',
-    colours: [{ name: 'Blush', value: '#EAD6D1' }, { name: 'Mulberry', value: '#8C575B' }, { name: 'Espresso', value: '#493B38' }, { name: 'Porcelain', value: '#F7F6F1' }],
+    typography: [{ role: 'Display heading', font: 'Cormorant Garamond', style: 'Regular' }, { role: 'Editorial accent', font: 'Cormorant Garamond', style: 'Italic' }, { role: 'Eyebrow', font: 'DM Sans', style: 'Medium uppercase' }, { role: 'Body and UI', font: 'DM Sans', style: 'Regular / medium' }],
+    colours: [{ name: 'Porcelain', value: '#F7F4EE' }, { name: 'Blush', value: '#E8D5D1' }, { name: 'Dusty rose', value: '#9B6266' }, { name: 'Espresso', value: '#463635' }, { name: 'Warm taupe', value: '#C5B7A8' }],
   },
 };
 ---
@@ -134,12 +134,11 @@ const caseStudies = {
                 <img class="curry-hero-image" src="/projects/el-curry/hero.png" alt="El Curry Loco website hero design" loading="lazy" />
               </div>
             </div>
-            <span class="project-status">Open case study</span>
+            <button class="project-status" type="button" data-case-study="curry">Open case study</button>
           </div>
           <div class="project-info">
             <div><div class="project-title-row"><h3>{projects.elCurryLoco.name}</h3><small class="project-disclaimer">Showcase concept · not client work</small></div><p>A bold, warm digital home for a restaurant bringing Mexican street food and Indian flavour together.</p></div>
             <ul><li>Brand positioning</li><li>Web design</li><li>Development</li></ul>
-            <button class="case-study-trigger" type="button" data-case-study="curry">Read about the project <span>↗</span></button>
           </div>
         </article>
 
@@ -149,12 +148,11 @@ const caseStudies = {
               <div class="fjd-top"><span>FJD / WORKSHOP</span><span>SURBITON</span></div>
               <div class="fjd-wheel"><div><i></i><i></i><i></i><i></i><i></i><b>FJD</b></div></div>
               <div class="fjd-copy"><strong>Good care.<br />More miles<span>.</span></strong><small>READY FOR THE ROAD AHEAD&nbsp;&nbsp; ↗</small></div>
-              <span class="project-status">Open case study</span>
+              <button class="project-status" type="button" data-case-study="fjd">Open case study</button>
             </div>
             <div class="project-info compact">
               <div><div class="project-title-row"><h3>{projects.fjdAutos.name}</h3><small class="project-disclaimer">Showcase concept · not client work</small></div><p>A cleaner, friendlier online presence for a trusted family-run garage.</p></div>
               <ul><li>Brand direction</li><li>Web design</li><li>Development</li></ul>
-              <button class="case-study-trigger" type="button" data-case-study="fjd">Read about the project <span>↗</span></button>
             </div>
           </article>
 
@@ -163,12 +161,11 @@ const caseStudies = {
               <div class="nails-copy"><span>A LITTLE TIME FOR YOU</span><strong>Make room<br />for <em>me-time.</em></strong></div>
               <div class="nails-photo"><img src="/projects/kt-nails/manicure.png" alt="French manicure created for the KT Nails website" loading="lazy" /></div>
               <div class="nails-brand">KT <em>Nails & Spa</em></div>
-              <span class="project-status">Open case study</span>
+              <button class="project-status" type="button" data-case-study="nails">Open case study</button>
             </div>
             <div class="project-info compact">
               <div><div class="project-title-row"><h3>{projects.ktNails.name}</h3><small class="project-disclaimer">Showcase concept · not client work</small></div><p>A soft, polished salon website built around calm, care and everyday luxury.</p></div>
               <ul><li>Brand direction</li><li>Web design</li><li>Development</li></ul>
-              <button class="case-study-trigger" type="button" data-case-study="nails">Read about the project <span>↗</span></button>
             </div>
           </article>
         </div>
@@ -183,11 +180,11 @@ const caseStudies = {
           <h2 id="case-study-title"></h2>
           <p id="case-study-summary"></p>
         </div>
+        <section class="case-study-brief"><span>The brief</span><h3>What the idea needed to communicate</h3><p id="case-study-brief"></p></section>
         <p class="case-study-notice"><strong>Showcase project.</strong> This is a self-initiated portfolio concept, not a commissioned client website or representation of a live client relationship.</p>
         <div class="case-study-grid">
-          <section class="case-study-brief"><span>The brief</span><h3>What the idea needed to communicate</h3><p id="case-study-brief"></p></section>
           <section><span>Purpose</span><h3>The website needs to</h3><ul id="case-study-goals"></ul></section>
-          <section><span>Visual system</span><h3>Colour and type</h3><div class="case-study-palette" id="case-study-palette"></div><p class="case-study-fonts" id="case-study-fonts"></p></section>
+          <section><span>Visual system</span><h3>Colour and type</h3><div class="case-study-palette" id="case-study-palette"></div><div class="case-study-type-table" id="case-study-type-table"></div></section>
         </div>
       </div>
     </dialog>
@@ -242,7 +239,7 @@ const caseStudies = {
         summary: string;
         brief: string;
         goals: string[];
-        fonts: string;
+        typography: { role: string; font: string; style: string }[];
         colours: { name: string; value: string }[];
       }>;
       const setText = (selector: string, value: string) => {
@@ -250,14 +247,13 @@ const caseStudies = {
         if (element) element.textContent = value;
       };
 
-      document.querySelectorAll<HTMLButtonElement>('.case-study-trigger').forEach((trigger) => {
+      document.querySelectorAll<HTMLButtonElement>('.project-status[data-case-study]').forEach((trigger) => {
         trigger.addEventListener('click', () => {
           const study = studies[trigger.dataset.caseStudy || ''];
           if (!study) return;
           setText('#case-study-title', study.name);
           setText('#case-study-summary', study.summary);
           setText('#case-study-brief', study.brief);
-          setText('#case-study-fonts', study.fonts);
 
           const goals = modal.querySelector<HTMLUListElement>('#case-study-goals');
           goals?.replaceChildren(...study.goals.map((goal) => Object.assign(document.createElement('li'), { textContent: goal })));
@@ -274,6 +270,18 @@ const caseStudies = {
             label.append(value);
             swatch.append(chip, label);
             return swatch;
+          }));
+          const typeTable = modal.querySelector<HTMLElement>('#case-study-type-table');
+          typeTable?.replaceChildren(...study.typography.map((type) => {
+            const row = document.createElement('div');
+            const role = document.createElement('span');
+            const font = document.createElement('strong');
+            const style = document.createElement('small');
+            role.textContent = type.role;
+            font.textContent = type.font;
+            style.textContent = type.style;
+            row.append(role, font, style);
+            return row;
           }));
           modal.showModal();
         });

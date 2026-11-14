@@ -183,7 +183,7 @@
     max-height: calc(100svh - 20px);
   }
   .case-study-panel {
-    padding: 68px 22px 24px;
+    padding: 0 14px 14px;
   }
   .case-study-close {
     top: 14px;
@@ -191,6 +191,10 @@
   }
   .case-study-heading h2 {
     font-size: clamp(2.8rem, 15vw, 4.8rem);
+  }
+  .case-study-heading {
+    margin: 0 -14px;
+    padding: 62px 22px 32px;
   }
   .case-study-grid {
     grid-template-columns: 1fr;
@@ -216,8 +220,7 @@
     min-height: 190px;
     padding: 24px 26px;
   }
-  .project-info ul,
-  .project-info > .case-study-trigger {
+  .project-info ul {
     position: static;
   }
   .project-info > div:first-child {
