@@ -24,27 +24,36 @@ const principles = [
 const caseStudies = {
   curry: {
     name: 'El Curry Loco',
+    images: ['/projects/el-curry/full_homepage.jpeg', '/projects/el-curry/menu_page.jpeg', '/projects/el-curry/enquiry form.png'],
+    url: projects.elCurryLoco.url,
     summary: 'A bold restaurant concept bringing Mexican street-food energy and Indian flavour together in one unmistakable digital identity.',
     brief: 'Create a lively, appetite-led website that explains the fusion immediately, feels independent rather than corporate, and gives a new restaurant a memorable first impression.',
+    userAims: ['Understand the Mexican–Indian concept quickly', 'Browse dishes, prices and dietary information', 'Find opening hours and the restaurant location', 'Order food or enquire about catering'],
     goals: ['Make the Mexican–Indian concept instantly understandable', 'Put signature food and personality at the centre', 'Make menus, location details and ordering actions easy to find', 'Translate the atmosphere cleanly across mobile and desktop'],
     typography: [{ role: 'Display heading', font: 'Manrope', style: 'Bold' }, { role: 'Editorial accent', font: 'Fraunces', style: 'Semibold italic' }, { role: 'Eyebrow', font: 'Manrope', style: 'Bold uppercase' }, { role: 'Body and UI', font: 'Manrope', style: 'Regular / semibold' }],
-    colours: [{ name: 'Terracotta', value: '#D35C43' }, { name: 'Saffron', value: '#F3BE45' }, { name: 'Peach', value: '#E79E87' }, { name: 'Forest', value: '#315344' }, { name: 'Cream', value: '#F4D4B8' }, { name: 'Cocoa', value: '#3D2924' }],
+    colourGroups: [{ label: 'Primary brand colours', colours: [{ name: 'Terracotta', value: '#D35C43' }, { name: 'Peach', value: '#E79E87' }, { name: 'Saffron', value: '#F3BE45' }] }, { label: 'Supporting colours', colours: [{ name: 'Forest', value: '#315344' }] }, { label: 'Typography colours', colours: [{ name: 'Cream', value: '#F4D4B8' }, { name: 'Cocoa', value: '#3D2924' }] }],
   },
   fjd: {
     name: 'FJD Autos',
+    images: ['/projects/fjd-autos/fjd_homepage.jpeg', '/projects/fjd-autos/fjd_enquiry.jpeg'],
+    url: projects.fjdAutos.url,
     summary: 'A cleaner, friendlier workshop identity designed to make a trusted family-run garage feel as dependable online as it does in person.',
     brief: 'Reframe an independent garage around clarity, trust and long-term care. The website needs to reassure drivers, explain services without jargon and make booking feel straightforward.',
+    userAims: ['See which repairs and services are available', 'Feel confident the garage is experienced and trustworthy', 'Request a booking without unnecessary back-and-forth', 'Find the phone number, address and opening hours'],
     goals: ['Build trust before a customer picks up the phone', 'Present services in clear, everyday language', 'Make location, opening hours and booking details effortless to find', 'Balance workshop character with a polished professional finish'],
     typography: [{ role: 'Display heading', font: 'Manrope', style: 'Bold' }, { role: 'Section heading', font: 'Manrope', style: 'Medium' }, { role: 'Eyebrow', font: 'Manrope', style: 'Bold uppercase' }, { role: 'Body and UI', font: 'DM Sans', style: 'Regular / semibold' }],
-    colours: [{ name: 'Workshop green', value: '#16463B' }, { name: 'Signal lime', value: '#D9F36A' }, { name: 'Warm chalk', value: '#F4F5EC' }, { name: 'Pale sage', value: '#DDE5D4' }, { name: 'Muted grey', value: '#6E746B' }],
+    colourGroups: [{ label: 'Primary brand colours', colours: [{ name: 'Workshop green', value: '#16463B' }, { name: 'Signal lime', value: '#D9F36A' }] }, { label: 'Supporting colours', colours: [{ name: 'Pale sage', value: '#DDE5D4' }] }, { label: 'Typography colours', colours: [{ name: 'Warm chalk', value: '#F4F5EC' }, { name: 'Muted grey', value: '#6E746B' }] }],
   },
   nails: {
     name: 'KT Nails & Spa',
+    images: ['/projects/kt-nails/nails_fullhomepage.jpeg', '/projects/kt-nails/manicure.png'],
+    url: projects.ktNails.url,
     summary: 'A soft, polished salon concept built around calm, care and an everyday sense of luxury.',
     brief: 'Create a serene digital home that feels premium without becoming intimidating. The design should showcase treatments, communicate care and turn casual interest into confident bookings.',
+    userAims: ['Browse treatments and understand what is offered', 'See examples of the salon’s work and finish', 'Find prices, availability and booking information', 'Locate the salon and plan a visit confidently'],
     goals: ['Create an immediate feeling of calm and quality', 'Show treatments and pricing in an easy-to-scan format', 'Give photography enough space to sell the finish', 'Keep booking and salon information close at hand on every screen'],
     typography: [{ role: 'Display heading', font: 'Cormorant Garamond', style: 'Regular' }, { role: 'Editorial accent', font: 'Cormorant Garamond', style: 'Italic' }, { role: 'Eyebrow', font: 'DM Sans', style: 'Medium uppercase' }, { role: 'Body and UI', font: 'DM Sans', style: 'Regular / medium' }],
-    colours: [{ name: 'Porcelain', value: '#F7F4EE' }, { name: 'Blush', value: '#E8D5D1' }, { name: 'Dusty rose', value: '#9B6266' }, { name: 'Espresso', value: '#463635' }, { name: 'Warm taupe', value: '#C5B7A8' }],
+    colourGroups: [{ label: 'Primary brand colours', colours: [{ name: 'Blush', value: '#E8D5D1' }, { name: 'Dusty rose', value: '#9B6266' }] }, { label: 'Supporting colours', colours: [{ name: 'Warm taupe', value: '#C5B7A8' }] }, { label: 'Typography colours', colours: [{ name: 'Porcelain', value: '#F7F4EE' }, { name: 'Espresso', value: '#463635' }] }],
   },
 };
 ---
@@ -174,18 +183,34 @@ const caseStudies = {
 
     <dialog class="case-study-modal" id="case-study-modal" aria-labelledby="case-study-title">
       <div class="case-study-panel">
-        <button class="case-study-close" type="button" aria-label="Close case study">Close <span>×</span></button>
-        <div class="case-study-heading">
-          <p class="eyebrow">Case study</p>
-          <h2 id="case-study-title"></h2>
-          <p id="case-study-summary"></p>
-        </div>
-        <section class="case-study-brief"><span>The brief</span><h3>What the idea needed to communicate</h3><p id="case-study-brief"></p></section>
+        <button class="case-study-close" type="button" aria-label="Close case study"><span>×</span></button>
         <p class="case-study-notice"><strong>Showcase project.</strong> This is a self-initiated portfolio concept, not a commissioned client website or representation of a live client relationship.</p>
-        <div class="case-study-grid">
-          <section><span>Purpose</span><h3>The website needs to</h3><ul id="case-study-goals"></ul></section>
-          <section><span>Visual system</span><h3>Colour and type</h3><div class="case-study-palette" id="case-study-palette"></div><div class="case-study-type-table" id="case-study-type-table"></div></section>
+        <div class="case-study-heading">
+          <div class="case-study-heading-column">
+            <div class="case-study-identity">
+              <p class="eyebrow">Case study</p>
+              <h2 id="case-study-title"></h2>
+              <a id="case-study-website" class="case-study-website" target="_blank" rel="noreferrer">Visit website <strong>↗</strong></a>
+            </div>
+            <div class="case-study-overview">
+              <span>Project overview</span>
+              <p id="case-study-summary"></p>
+            </div>
+            <section class="case-study-user-aims"><span>User aims</span><h3>What visitors need to do</h3><ul id="case-study-user-aims"></ul></section>
+            <aside class="case-study-colour-card">
+              <span>Colour system</span>
+              <div class="case-study-palette" id="case-study-palette"></div>
+            </aside>
+          </div>
+          <div class="case-study-heading-column">
+            <section class="case-study-brief"><span>The brief</span><h3>What the idea needed to communicate</h3><p id="case-study-brief"></p></section>
+            <section class="case-study-purpose-card"><span>Purpose</span><h3>The website needs to</h3><ul id="case-study-goals"></ul></section>
+            <section class="case-study-typography-card"><span>Typography &amp; type hierarchy</span><div class="case-study-type-table" id="case-study-type-table"></div></section>
+          </div>
         </div>
+        <section class="case-study-visual-showcase">
+          <div class="case-study-gallery" id="case-study-gallery"></div>
+        </section>
       </div>
     </dialog>
 
@@ -236,11 +261,14 @@ const caseStudies = {
     if (modal && dataElement) {
       const studies = JSON.parse(dataElement.textContent || '{}') as Record<string, {
         name: string;
+        images: string[];
+        url: string;
         summary: string;
         brief: string;
+        userAims: string[];
         goals: string[];
         typography: { role: string; font: string; style: string }[];
-        colours: { name: string; value: string }[];
+        colourGroups: { label: string; colours: { name: string; value: string }[] }[];
       }>;
       const setText = (selector: string, value: string) => {
         const element = modal.querySelector<HTMLElement>(selector);
@@ -255,21 +283,61 @@ const caseStudies = {
           setText('#case-study-summary', study.summary);
           setText('#case-study-brief', study.brief);
 
+          const gallery = modal.querySelector<HTMLElement>('#case-study-gallery');
+          const galleryColumns = Array.from({ length: Math.min(3, study.images.length) }, () => {
+            const column = document.createElement('div');
+            column.className = 'case-study-gallery-column';
+            return column;
+          });
+          study.images.forEach((source, index) => {
+            const frame = document.createElement('figure');
+            const image = document.createElement('img');
+            image.src = source;
+            image.alt = `${study.name} website design view ${index + 1}`;
+            frame.append(image);
+            galleryColumns[index % galleryColumns.length]?.append(frame);
+          });
+          gallery?.replaceChildren(...galleryColumns);
+          const website = modal.querySelector<HTMLAnchorElement>('#case-study-website');
+          if (website) {
+            if (study.url) {
+              website.href = study.url;
+              website.removeAttribute('aria-disabled');
+              website.classList.remove('is-disabled');
+            } else {
+              website.removeAttribute('href');
+              website.setAttribute('aria-disabled', 'true');
+              website.classList.add('is-disabled');
+            }
+          }
+
           const goals = modal.querySelector<HTMLUListElement>('#case-study-goals');
           goals?.replaceChildren(...study.goals.map((goal) => Object.assign(document.createElement('li'), { textContent: goal })));
 
+          const userAims = modal.querySelector<HTMLUListElement>('#case-study-user-aims');
+          userAims?.replaceChildren(...study.userAims.map((aim) => Object.assign(document.createElement('li'), { textContent: aim })));
+
           const palette = modal.querySelector<HTMLElement>('#case-study-palette');
-          palette?.replaceChildren(...study.colours.map((colour) => {
-            const swatch = document.createElement('div');
-            const chip = document.createElement('i');
-            const label = document.createElement('span');
-            const value = document.createElement('small');
-            chip.style.background = colour.value;
-            label.textContent = colour.name;
-            value.textContent = colour.value;
-            label.append(value);
-            swatch.append(chip, label);
-            return swatch;
+          palette?.replaceChildren(...study.colourGroups.map((group) => {
+            const section = document.createElement('section');
+            const heading = document.createElement('h4');
+            const swatches = document.createElement('div');
+            heading.textContent = group.label;
+            swatches.className = 'case-study-colour-swatches';
+            swatches.append(...group.colours.map((colour) => {
+              const swatch = document.createElement('div');
+              const chip = document.createElement('i');
+              const label = document.createElement('span');
+              const value = document.createElement('small');
+              chip.style.background = colour.value;
+              label.textContent = colour.name;
+              value.textContent = colour.value;
+              label.append(value);
+              swatch.append(chip, label);
+              return swatch;
+            }));
+            section.append(heading, swatches);
+            return section;
           }));
           const typeTable = modal.querySelector<HTMLElement>('#case-study-type-table');
           typeTable?.replaceChildren(...study.typography.map((type) => {
@@ -277,10 +345,24 @@ const caseStudies = {
             const role = document.createElement('span');
             const font = document.createElement('strong');
             const style = document.createElement('small');
+            const example = document.createElement('em');
             role.textContent = type.role;
             font.textContent = type.font;
             style.textContent = type.style;
-            row.append(role, font, style);
+            const examples: Record<string, string> = {
+              'Display heading': 'Distinctive by design.',
+              'Section heading': 'Clear thinking, clearly made.',
+              'Editorial accent': 'Made memorable.',
+              'Eyebrow': 'A SHARPER FIRST IMPRESSION',
+              'Body and UI': 'Thoughtful details, clearly communicated.',
+            };
+            example.textContent = examples[type.role] || 'Ideas made visible.';
+            example.className = 'case-study-type-example';
+            example.dataset.role = type.role;
+            example.style.fontFamily = `"${type.font}", ${type.font.includes('Fraunces') || type.font.includes('Cormorant') ? 'serif' : 'sans-serif'}`;
+            example.style.fontStyle = type.style.toLowerCase().includes('italic') ? 'italic' : 'normal';
+            example.style.fontWeight = type.style.toLowerCase().includes('bold') ? '700' : type.style.toLowerCase().includes('semibold') ? '600' : type.style.toLowerCase().includes('medium') ? '500' : '400';
+            row.append(role, font, style, example);
             return row;
           }));
           modal.showModal();
