@@ -215,6 +215,16 @@
     grid-template-columns: 1fr;
     min-height: 190px;
   }
+  .project-status {
+    top: 14px;
+    right: 14px;
+    gap: 9px;
+    padding: 9px 10px 9px 12px;
+  }
+  .project-status::after {
+    width: 21px;
+    height: 21px;
+  }
   .project-info .project-status,
   .project-info .project-link {
     grid-column: 1;
