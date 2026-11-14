@@ -412,7 +412,7 @@
   z-index: 6;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 18px 24px;
+  gap: 1px 24px;
   align-items: start;
   min-height: 200px;
   padding: 24px 26px;
@@ -422,6 +422,9 @@
 }
 .project-info > div {
   grid-column: 1 / -1;
+}
+.project-info > div:first-child {
+  min-height: 104px;
 }
 .project-info h3 {
   margin: 0;
@@ -775,7 +778,7 @@
 }
 .nails-photo {
   position: absolute;
-  width: 47%;
+  width: 43%;
   height: 67%;
   right: 7%;
   bottom: 0;

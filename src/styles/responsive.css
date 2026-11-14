@@ -214,6 +214,14 @@
   .project-info {
     grid-template-columns: 1fr;
     min-height: 190px;
+    padding: 24px 26px;
+  }
+  .project-info ul,
+  .project-info > .case-study-trigger {
+    position: static;
+  }
+  .project-info > div:first-child {
+    min-height: 0;
   }
   .project-status {
     top: 14px;
