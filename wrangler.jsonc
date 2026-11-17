@@ -3,10 +3,16 @@
   "name": "madhatter-studio",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-13",
+  "keep_vars": true,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
     "run_worker_first": ["/api/*"]
   },
-  "send_email": [{ "name": "ENQUIRY_EMAIL" }]
+  "send_email": [
+    {
+      "name": "ENQUIRY_EMAIL",
+      "destination_address": "contact@madhatterstudio.co.uk"
+    }
+  ]
 }
