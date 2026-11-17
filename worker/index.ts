@@ -100,7 +100,8 @@ export default {
       });
       await env.ENQUIRY_EMAIL.send(new EmailMessage(env.EMAIL_FROM, env.EMAIL_TO, message.asRaw()));
       return json({ ok: true });
-    } catch {
+    } catch (error) {
+      console.error('Enquiry processing failed', error);
       return json({ error: 'The enquiry could not be sent. Please try again shortly.' }, 502);
     }
   },
