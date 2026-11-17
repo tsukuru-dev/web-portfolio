@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "madhatter-studio",
+  "name": "web-portfolio",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-13",
   "keep_vars": true,
