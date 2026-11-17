@@ -815,10 +815,13 @@ body:has(.case-study-modal[open]) {
   padding: 0 30px 30px;
 }
 .case-study-close {
-  position: absolute;
+  position: sticky;
   z-index: 2;
-  top: 24px;
-  right: 24px;
+  top: 18px;
+  display: block;
+  width: max-content;
+  height: 0;
+  margin-left: auto;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1509,25 +1512,42 @@ body:has(.case-study-modal[open]) {
 }
 
 .final-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
   min-height: 520px;
+  padding-inline: max(48px, calc((100% - 1280px) / 2));
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 50px;
   align-items: center;
 }
+.final-cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  bottom: -30%;
+  left: 50%;
+  width: 72%;
+  background: var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+}
 .final-cta h2 {
   font-size: clamp(3.5rem, 6vw, 6.5rem);
 }
 .cta-orbit {
-  width: 165px;
+  position: relative;
+  width: 320px;
   height: 165px;
-  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--blue);
+  background: transparent;
   color: white;
   text-decoration: none;
   transition:
@@ -1535,7 +1555,6 @@ body:has(.case-study-modal[open]) {
     transform 0.2s;
 }
 .cta-orbit:hover {
-  background: var(--blue-dark);
   transform: translateY(-3px);
 }
 .cta-orbit span {

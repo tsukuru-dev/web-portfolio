@@ -98,6 +98,9 @@
   .studio-grid {
     gap: 50px;
   }
+  .final-cta {
+    padding-inline: 28px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -295,12 +298,34 @@
     justify-self: center;
   }
   .final-cta {
-    min-height: 560px;
+    width: 100%;
+    min-height: 660px;
     grid-template-columns: 1fr;
-    align-content: center;
+    align-content: start;
+    padding: 82px 16px 0;
+  }
+  .final-cta::before {
+    display: block;
+    top: 45%;
+    bottom: 0;
+    left: 50%;
+    width: 125%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 0 0 / 42% 42% 0 0;
   }
   .cta-orbit {
-    justify-self: end;
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    justify-self: auto;
+  }
+  .cta-orbit:hover {
+    background: transparent;
+    transform: translate(-50%, calc(-50% - 3px));
   }
   .site-footer {
     grid-template-columns: 1fr 1fr;
