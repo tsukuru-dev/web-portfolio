@@ -1,5 +1,5 @@
 import { EmailMessage } from 'cloudflare:email';
-import { createMimeMessage } from 'mimetext';
+import { createMimeMessage, Mailbox } from 'mimetext';
 import { validateEnquiry } from '../src/lib/enquiry';
 
 interface Env {
@@ -78,7 +78,10 @@ export default {
       const message = createMimeMessage();
       message.setSender({ name: 'Madhatter website', addr: env.EMAIL_FROM });
       message.setRecipient(env.EMAIL_TO);
-      message.setHeader('Reply-To', enquiry.email);
+      message.setHeader(
+        'Reply-To',
+        new Mailbox({ name: enquiry.name, addr: enquiry.email }),
+      );
       message.setSubject(`New project enquiry: ${enquiry.business || enquiry.name}`);
       message.addMessage({
         contentType: 'text/plain',
