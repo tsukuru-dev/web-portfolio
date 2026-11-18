@@ -10,7 +10,6 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "SITE_ORIGIN": "https://madhatterstudio.co.uk",
     "EMAIL_FROM": "contact@madhatterstudio.co.uk",
     "EMAIL_TO": "contact@madhatterstudio.co.uk"
   },

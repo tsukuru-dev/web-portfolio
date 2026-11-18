@@ -5,7 +5,6 @@ import { validateEnquiry } from '../src/lib/enquiry';
 interface Env {
   ASSETS: Fetcher;
   ENQUIRY_EMAIL: SendEmail;
-  SITE_ORIGIN?: string;
   EMAIL_FROM?: string;
   EMAIL_TO?: string;
   TURNSTILE_SECRET_KEY?: string;
@@ -22,10 +21,10 @@ export default {
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     if (url.pathname !== '/api/enquiry') return json({ error: 'Not found.' }, 404);
     if (request.method !== 'POST') return new Response(null, { status: 405, headers: { Allow: 'POST' } });
-    if (!env.SITE_ORIGIN || !env.EMAIL_FROM || !env.EMAIL_TO || !env.TURNSTILE_SECRET_KEY) {
+    if (!env.EMAIL_FROM || !env.EMAIL_TO || !env.TURNSTILE_SECRET_KEY) {
       return json({ error: 'Online enquiries are not configured yet. Please try again later.' }, 503);
     }
-    if (request.headers.get('Origin') !== env.SITE_ORIGIN) return json({ error: 'Please submit the form from the website.' }, 403);
+    if (request.headers.get('Origin') !== url.origin) return json({ error: 'Please submit the form from the website.' }, 403);
     const contentType = request.headers.get('Content-Type') || '';
     if (!contentType.startsWith('multipart/form-data') && !contentType.startsWith('application/x-www-form-urlencoded')) {
       return json({ error: 'Unsupported form format.' }, 415);
@@ -72,7 +71,7 @@ export default {
         signal: AbortSignal.timeout(10000),
       });
       const result = await verification.json() as { success: boolean; hostname?: string; action?: string };
-      if (!verification.ok || !result.success || result.hostname !== new URL(env.SITE_ORIGIN).hostname || result.action !== 'enquiry') {
+      if (!verification.ok || !result.success || result.hostname !== url.hostname || result.action !== 'enquiry') {
         return json({ error: 'Spam protection expired or failed. Please try again.' }, 400);
       }
 
