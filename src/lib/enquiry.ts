@@ -40,7 +40,7 @@ export function validateEnquiry(form: FormData): Enquiry {
     message: field('message', 3000),
   };
 
-  if (/\r|\n/.test(enquiry.name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enquiry.email)) {
+  if (/\r|\n/.test(enquiry.name) || /\r|\n/.test(enquiry.business) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enquiry.email)) {
     throw new Error('Please enter a valid name and email address.');
   }
   if (enquiry.phone && (!/^[+\d\s().-]{7,30}$/.test(enquiry.phone) || enquiry.phone.replace(/\D/g, '').length < 7)) {

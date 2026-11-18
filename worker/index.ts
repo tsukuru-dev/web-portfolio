@@ -1,5 +1,5 @@
 import { EmailMessage } from 'cloudflare:email';
-import { createMimeMessage, Mailbox } from 'mimetext';
+import { buildEnquiryEmail } from '../src/lib/enquiry-email';
 import { validateEnquiry } from '../src/lib/enquiry';
 
 interface Env {
@@ -75,32 +75,8 @@ export default {
         return json({ error: 'Spam protection expired or failed. Please try again.' }, 400);
       }
 
-      const message = createMimeMessage();
-      message.setSender({ name: 'Madhatter website', addr: env.EMAIL_FROM });
-      message.setRecipient(env.EMAIL_TO);
-      message.setHeader(
-        'Reply-To',
-        new Mailbox({ name: enquiry.name, addr: enquiry.email }),
-      );
-      message.setSubject(`New project enquiry: ${enquiry.business || enquiry.name}`);
-      message.addMessage({
-        contentType: 'text/plain',
-        data: [
-          'New Madhatter Studio project enquiry',
-          '',
-          `Name: ${enquiry.name}`,
-          `Business: ${enquiry.business || 'Not provided'}`,
-          `Email: ${enquiry.email}`,
-          `Phone: ${enquiry.phone || 'Not provided'}`,
-          `Website: ${enquiry.websiteUrl || 'Not provided'}`,
-          `Project: ${enquiry.projectTypes.join(', ')}`,
-          `Budget: ${enquiry.budget}`,
-          `Timeline: ${enquiry.timeline}`,
-          '',
-          enquiry.message,
-        ].join('\n'),
-      });
-      await env.ENQUIRY_EMAIL.send(new EmailMessage(env.EMAIL_FROM, env.EMAIL_TO, message.asRaw()));
+      const rawEmail = buildEnquiryEmail(enquiry, env.EMAIL_FROM, env.EMAIL_TO);
+      await env.ENQUIRY_EMAIL.send(new EmailMessage(env.EMAIL_FROM, env.EMAIL_TO, rawEmail));
       return json({ ok: true });
     } catch (error) {
       console.error('Enquiry processing failed', error);

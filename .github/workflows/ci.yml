@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   validate:
-    name: Check and build
+    name: Lint, test, check and build
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -36,8 +36,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check types and Astro files
-        run: npm run check
-
-      - name: Build production site
-        run: npm run build
+      - name: Validate production candidate
+        run: npm run validate
