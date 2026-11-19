@@ -11,18 +11,17 @@
   align-items: center;
 }
 .final-cta::before {
+  --final-curve-radius: max(500px, 40vw);
   content: "";
   position: absolute;
   z-index: -1;
-  top: 70%;
-  bottom: auto;
-  left: 35%;
-  width: max(1000px, 80vw);
-  aspect-ratio: 1;
+  inset: 0;
   background: var(--blue);
-  border-radius: 50%;
+  clip-path: circle(
+    var(--final-curve-radius) at
+    calc(35% + var(--final-curve-radius)) 70%
+  );
   pointer-events: none;
-  transform: translateY(-50%);
 }
 .final-cta h2 {
   margin-top: 30px;

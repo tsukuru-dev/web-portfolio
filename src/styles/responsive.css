@@ -322,10 +322,12 @@
   .final-cta::before {
     display: block;
     top: 45%;
+    right: auto;
     bottom: 0;
     left: 50%;
     width: 125%;
     aspect-ratio: auto;
+    clip-path: none;
     transform: translateX(-50%);
     border-radius: 50% 50% 0 0 / 42% 42% 0 0;
   }
