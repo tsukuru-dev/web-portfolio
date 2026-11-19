@@ -38,6 +38,19 @@
     background 0.18s,
     color 0.18s;
 }
+.command-links .command-home {
+  justify-content: center;
+  min-width: 34px;
+}
+.command-home svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--blue);
+  stroke: var(--blue);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
 .command-links a:not(:last-child)::after {
   position: absolute;
   top: 50%;

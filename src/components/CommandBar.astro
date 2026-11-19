@@ -10,7 +10,11 @@ const homePrefix = current === 'home' ? '' : '/';
 <header class="command-shell">
   <nav class="command-bar" aria-label="Primary navigation">
     <div class="command-links">
-      <a href={`${homePrefix}#top`}>Home</a>
+      <a class="command-home" href={`${homePrefix}#top`} aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.75 10.5 12 3.75l8.25 6.75v8.75a1 1 0 0 1-1 1h-5v-6.5h-4.5v6.5h-5a1 1 0 0 1-1-1Z"></path>
+        </svg>
+      </a>
       <a class="command-link-optional" href={`${homePrefix}#philosophy`}>Philosophy</a>
       <a href={`${homePrefix}#approach`} data-approach-link>Approach</a>
       <a href={`${homePrefix}#work`}>Work</a>

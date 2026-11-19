@@ -340,8 +340,30 @@
 }
 
 @media (max-width: 450px) {
-  .command-link-optional {
-    display: none !important;
+  .command-bar {
+    gap: 1px;
+    padding: 3px;
+  }
+  .command-links {
+    gap: 2px;
+  }
+  .command-links a {
+    padding: 7px 4px;
+    font-size: 0.56rem;
+  }
+  .command-links .command-home {
+    min-width: 28px;
+  }
+  .command-links a:not(:last-child)::after {
+    right: -2px;
+    height: 11px;
+  }
+  .command-divider {
+    margin: 0 1px;
+  }
+  .command-action {
+    padding: 8px;
+    font-size: 0.56rem;
   }
   h1 {
     font-size: 3.8rem;

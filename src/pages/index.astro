@@ -181,8 +181,6 @@ const caseStudies = {
   title="Madhatter Studio — Distinctive websites for ambitious businesses"
   description="Madhatter Studio designs and builds sharp, strategic websites and brand experiences for ambitious businesses."
 >
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <CommandBar />
 
   <main id="main">
@@ -618,6 +616,7 @@ const caseStudies = {
       let previousProgress = -1;
       let previousReachedMarker = -2;
       let previousCurrentMarker = -2;
+      const getTimelineViewportRatio = () => window.innerWidth <= 700 ? 0.32 : 0.4;
 
       const updateProcessTimeline = () => {
         timelineFrame = 0;
@@ -625,7 +624,7 @@ const caseStudies = {
 
         const timelineStart = markerCentres[0];
         const timelineEnd = markerCentres[markerCentres.length - 1];
-        const scrollPlayhead = window.scrollY + window.innerHeight * 0.32 - listPageTop;
+        const scrollPlayhead = window.scrollY + window.innerHeight * getTimelineViewportRatio() - listPageTop;
         const progress = Math.round(
           Math.max(0, Math.min(timelineEnd - timelineStart, scrollPlayhead - timelineStart)) * 2,
         ) / 2;
@@ -696,11 +695,9 @@ const caseStudies = {
           const markerCentre = markerCentres[index];
           if (markerCentre === undefined) return;
 
-          let targetTop = listPageTop + markerCentre - window.innerHeight * 0.32;
+          let targetTop = listPageTop + markerCentre - window.innerHeight * getTimelineViewportRatio();
           if (index === 0) targetTop = sectionPageTop;
-          if (index === markers.length - 1) {
-            targetTop += 2;
-          }
+          if (index > 0) targetTop += 2;
 
           window.scrollTo({
             top: targetTop,
