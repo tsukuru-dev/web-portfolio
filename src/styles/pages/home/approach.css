@@ -12,9 +12,9 @@
   border-radius: 12px;
   background:
     radial-gradient(
-      circle at 8% 112%,
-      rgba(243, 106, 70, 0.2) 0 190px,
-      transparent 191px
+      circle at 3% 112%,
+      rgba(243, 106, 70, 0.2) 0 300px,
+      transparent 261px
     ),
     #e5e9fa;
   color: var(--ink);
@@ -25,6 +25,28 @@
 }
 .process-copy h2 {
   font-size: clamp(2.7rem, 4.2vw, 4.5rem);
+}
+.process-copy h2 .process-swoosh {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  color: var(--blue);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 0.85;
+}
+.process-copy h2 .process-swoosh::after {
+  position: absolute;
+  z-index: -1;
+  right: -3%;
+  bottom: -0.2em;
+  left: -1%;
+  height: 14px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 24' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C200 5 395 3 496 17 Q500 19.5 496 22 C330 23 190 13 4 17 Q0 15.5 4 14 Z' fill='%23d9ee7c'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  content: "";
+  transform: rotate(-2.25deg);
+  transform-origin: center;
 }
 .process-copy > p:last-child {
   max-width: 380px;
