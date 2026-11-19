@@ -7,7 +7,7 @@
   .hero {
     min-height: 100svh;
     gap: clamp(42px, 5vw, 76px);
-    padding: 73px 0 53px;
+    padding: 50px 0 76px;
   }
   .hero-lead {
     font-size: 0.96rem;
@@ -85,6 +85,9 @@
   }
   .project-pair {
     grid-template-columns: 1fr;
+  }
+  .principle-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .project-pair .project-preview {
     height: 560px;
@@ -170,7 +173,7 @@
     grid-template-columns: 1fr;
   }
   .principle {
-    min-height: 310px;
+    min-height: 0;
   }
   .section-heading {
     gap: 25px;

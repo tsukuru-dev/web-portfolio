@@ -165,16 +165,24 @@
 .principles-heading h2 {
   font-size: clamp(2.4rem, 4vw, 4.2rem);
 }
+.principles-intro {
+  max-width: 720px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
 .principle-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 18px;
 }
 .principle {
   position: relative;
-  min-height: 300px;
+  min-height: 270px;
   overflow: hidden;
-  padding: 25px;
+  padding: 18px 25px;
   border: 1px solid var(--line);
   border-radius: 7px;
   background: #fbfaf7;
@@ -188,15 +196,10 @@
   background: #eef0fa;
   border-color: #c7cdec;
 }
-.principle > span {
-  color: var(--blue);
-  font-size: 0.68rem;
-  font-weight: 700;
-}
 .principle-visual {
   position: relative;
   height: 112px;
-  margin: 24px -4px 22px;
+  margin: 0 -4px 22px;
   overflow: hidden;
   border-radius: 6px;
   background: #eef0ea;
@@ -315,6 +318,93 @@
     0 13px var(--ink),
     0 26px var(--ink),
     0 39px var(--ink);
+}
+.principle-visual-04 {
+  background: #f5d8cf;
+}
+.principle-visual-04 i:first-child {
+  left: 24px;
+  top: 18px;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.principle-visual-04 i:nth-child(2) {
+  left: 78px;
+  top: 15px;
+  width: 82px;
+  height: 82px;
+  border-radius: 45% 45% 8px 8px;
+  background: var(--blue);
+  transform: rotate(8deg);
+}
+.principle-visual-04 i:last-child {
+  right: 24px;
+  bottom: 18px;
+  width: 68px;
+  height: 52px;
+  border: 2px solid var(--ink);
+  border-radius: 5px;
+  background: var(--acid);
+  transform: rotate(-5deg);
+}
+.principle-visual-05 {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(#ffffff12 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff12 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.principle-visual-05 i:first-child {
+  left: 50%;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--acid);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.principle-visual-05 i:nth-child(2) {
+  left: 50%;
+  top: 13px;
+  width: 1px;
+  height: 86px;
+  background: white;
+  transform: translateX(-50%);
+}
+.principle-visual-05 i:last-child {
+  left: 24px;
+  top: 50%;
+  width: calc(100% - 48px);
+  height: 1px;
+  background: white;
+  box-shadow: 0 0 0 5px var(--ink), 0 0 0 7px var(--orange);
+}
+.principle-visual-06 {
+  background: var(--acid);
+}
+.principle-visual-06 i:first-child,
+.principle-visual-06 i:nth-child(2),
+.principle-visual-06 i:last-child {
+  bottom: 20px;
+  width: 20%;
+  border-radius: 4px 4px 0 0;
+  background: var(--blue);
+}
+.principle-visual-06 i:first-child {
+  left: 18%;
+  height: 30px;
+}
+.principle-visual-06 i:nth-child(2) {
+  left: 40%;
+  height: 55px;
+  background: var(--orange);
+}
+.principle-visual-06 i:last-child {
+  left: 62%;
+  height: 80px;
+  background: var(--ink);
 }
 .principle h3 {
   margin: 0 0 13px;
@@ -1391,8 +1481,11 @@ body:has(.case-study-modal[open]) {
 }
 .process li {
   display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 18px;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.process li > div {
   padding: 22px;
   border: 1px solid rgba(24, 35, 43, 0.12);
   border-radius: 8px;
@@ -1402,20 +1495,21 @@ body:has(.case-study-modal[open]) {
     border-color 0.2s,
     transform 0.2s;
 }
-.process li:hover {
+.process li:hover > div {
   border-color: rgba(82, 110, 232, 0.35);
   background: var(--paper);
   transform: translateX(4px);
 }
 .process li > span {
-  width: 34px;
-  height: 34px;
+  margin-top: 22px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--blue);
   color: white;
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   font-weight: 700;
 }
 .process h3 {
@@ -1430,6 +1524,18 @@ body:has(.case-study-modal[open]) {
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.65;
+}
+.process li p + p {
+  margin-top: 8px;
+}
+.process li .process-card-eyebrow {
+  margin: 0 0 8px;
+  color: var(--blue-dark);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .studio-section {
