@@ -457,12 +457,24 @@ const caseStudies = {
     </section>
 
     <section class="final-cta shell">
-      <div>
-        <p class="eyebrow">Have something good in mind?</p>
-        <h2>Let's make it<br /><em>look the part.</em></h2>
+      <div class="final-copy">
+        <p class="eyebrow">Everything starts somewhere</p>
+        <h2>Let's make it<br />look the part.</h2>
+        <span class="final-scribble" aria-hidden="true"></span>
       </div>
-      <a class="cta-orbit" href="/enquire/" aria-label="Start a project">
-        <span>START A PROJECT</span><strong>&#x2197;&#xFE0E;</strong>
+      <div class="final-playground">
+        <button class="hat final-hat" type="button" aria-label="Show another idea"><span class="final-hat-shape"><i></i><b></b><span></span></span></button>
+        <div class="final-note"><span class="final-note-text">You bring the wishlist. Call us Santa Claus.</span></div>
+        <span class="final-orbit" aria-hidden="true"></span>
+        <i class="final-shape final-shape-orange" aria-hidden="true"></i>
+        <i class="final-shape final-shape-acid" aria-hidden="true"></i>
+        <i class="final-shape final-shape-paper" aria-hidden="true"></i>
+        <i class="final-shape final-shape-lilac" aria-hidden="true"></i>
+      </div>
+      <a class="cta-orbit" href="/enquire/" aria-label="Start a conversation">
+        <span class="cta-label">Start a<br />conversation</span>
+        <strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 7l5 5-5 5"></path></svg></strong>
+        <span class="cta-spark" aria-hidden="true"><i></i><i></i><i></i></span>
       </a>
     </section>
   </main>
@@ -717,6 +729,81 @@ const caseStudies = {
       });
 
       scheduleProcessMeasurement();
+    }
+
+    const finalNote = document.querySelector<HTMLElement>('.final-note');
+    const finalNoteText = finalNote?.querySelector<HTMLElement>('.final-note-text');
+    const finalHat = document.querySelector<HTMLButtonElement>('.final-hat');
+
+    if (finalNote && finalNoteText && finalHat) {
+      const phrases = [
+        'You bring the wishlist. Call us Santa Claus.',
+        'Cinderella, meet your fairy godmother.',
+        'A little different? Even better',
+        'Your wishlist.\nOur pleasure.',
+        'Your business. Anything but ordinary.',
+        'Consider your needs met.',
+        "Let's make something worth remembering.",
+        'Big ideas welcome. Small ones too.',
+        "No vision yet? That's our kind of challenge.",
+        'Every little detail. Deliberately done',
+      ];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let phraseOrder: string[] = [];
+      let phraseIndex = 0;
+      let lastPhrase = '';
+      let rotationTimer = 0;
+      let fadeTimer = 0;
+      let isNoteVisible = false;
+
+      const shufflePhrases = () => {
+        phraseOrder = [...phrases];
+        for (let index = phraseOrder.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [phraseOrder[index], phraseOrder[randomIndex]] = [phraseOrder[randomIndex], phraseOrder[index]];
+        }
+        if (phraseOrder[0] === lastPhrase && phraseOrder.length > 1) {
+          [phraseOrder[0], phraseOrder[1]] = [phraseOrder[1], phraseOrder[0]];
+        }
+        phraseIndex = 0;
+      };
+
+      const takeNextPhrase = () => {
+        if (phraseIndex >= phraseOrder.length) shufflePhrases();
+        const phrase = phraseOrder[phraseIndex];
+        phraseIndex += 1;
+        lastPhrase = phrase;
+        return phrase;
+      };
+
+      const scheduleNoteChange = () => {
+        window.clearTimeout(rotationTimer);
+        if (isNoteVisible) rotationTimer = window.setTimeout(showNextPhrase, 7000);
+      };
+
+      const showNextPhrase = () => {
+        window.clearTimeout(rotationTimer);
+        window.clearTimeout(fadeTimer);
+        finalNoteText.classList.add('is-changing');
+        fadeTimer = window.setTimeout(() => {
+          finalNoteText.textContent = takeNextPhrase();
+          finalNoteText.classList.remove('is-changing');
+          scheduleNoteChange();
+        }, reducedMotion.matches ? 0 : 180);
+      };
+
+      finalHat.addEventListener('click', showNextPhrase);
+      shufflePhrases();
+      finalNoteText.textContent = takeNextPhrase();
+
+      const noteObserver = new IntersectionObserver(([entry]) => {
+        isNoteVisible = entry.isIntersecting;
+        window.clearTimeout(rotationTimer);
+        window.clearTimeout(fadeTimer);
+        finalNoteText.classList.remove('is-changing');
+        if (isNoteVisible) scheduleNoteChange();
+      }, { threshold: 0.35 });
+      noteObserver.observe(finalNote);
     }
   </script>
 

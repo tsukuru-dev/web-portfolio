@@ -328,19 +328,30 @@
     transform: translateX(-50%);
     border-radius: 50% 50% 0 0 / 42% 42% 0 0;
   }
+  .final-playground {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    width: 500px;
+    height: 360px;
+    transform: translateX(-50%) scale(0.62);
+    transform-origin: top center;
+  }
   .cta-orbit {
     position: absolute;
-    z-index: 1;
-    top: 70%;
+    z-index: 6;
+    top: auto;
+    right: auto;
+    bottom: 28px;
     left: 50%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    width: min(292px, calc(100% - 42px));
+    min-height: 106px;
+    transform: translateX(-50%) rotate(5deg);
     justify-self: auto;
   }
   .cta-orbit:hover {
-    background: transparent;
-    transform: translate(-50%, calc(-50% - 3px));
+    background: var(--paper);
+    transform: translateX(-50%) translateY(-5px) rotate(2deg);
   }
   .site-footer {
     grid-template-columns: 1fr 1fr;
