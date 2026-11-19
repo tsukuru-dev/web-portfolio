@@ -19,7 +19,51 @@
   margin: 0 0 18px;
 }
 .principles-heading h2 {
+  position: relative;
   font-size: clamp(2.4rem, 4vw, 4.2rem);
+}
+.principles-heading h2 .principles-emphasis {
+  display: inline;
+  font: inherit;
+}
+.principles-heading h2 .principles-emphasis strong {
+  color: var(--blue);
+  font: inherit;
+  font-size: 1.16em;
+  font-style: italic;
+}
+.principles-spark-anchor {
+  position: relative;
+  display: inline-block;
+}
+.principles-spark {
+  position: absolute;
+  bottom: 58%;
+  left: 82%;
+  width: 52px;
+  height: 48px;
+  pointer-events: none;
+  transform: rotate(10deg);
+  transform-origin: bottom left;
+}
+.principles-spark i {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 6px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--orange);
+  transform-origin: 50% 55px;
+}
+.principles-spark i:nth-child(1) {
+  transform: rotate(0deg);
+}
+.principles-spark i:nth-child(2) {
+  transform: rotate(25deg);
+}
+.principles-spark i:nth-child(3) {
+  transform: rotate(50deg);
 }
 .principles-intro {
   max-width: 720px;

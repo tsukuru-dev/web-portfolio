@@ -352,6 +352,10 @@
 }
 
 @media (max-width: 450px) {
+  .principles-spark {
+    transform: rotate(10deg) scale(0.78);
+    transform-origin: bottom left;
+  }
   .command-bar {
     gap: 1px;
     padding: 3px;
