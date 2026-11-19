@@ -27,7 +27,18 @@
   padding: 24px;
   background: var(--blue);
   color: white;
-  box-shadow: 0 20px 50px rgba(28, 45, 90, 0.15);
+  box-shadow:
+    17px 18px 0 rgba(82, 110, 232, 0.12),
+    0 24px 55px rgba(28, 45, 90, 0.2);
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.studio-art:hover {
+  box-shadow:
+    12px 14px 0 rgba(82, 110, 232, 0.1),
+    0 28px 60px rgba(28, 45, 90, 0.22);
+  transform: translateY(-4px);
 }
 .studio-art::before {
   content: "";
@@ -99,6 +110,13 @@
   font-family: var(--serif);
   font-weight: 600;
 }
+.art-word {
+  display: inline-block;
+  transition: transform 0.22s ease;
+}
+.art-word:hover {
+  transform: translateY(-6px) scale(1.04);
+}
 .shape-circle {
   position: absolute;
   width: 190px;
@@ -107,6 +125,10 @@
   background: var(--acid);
   top: 8%;
   right: 7%;
+  transition: transform 0.28s ease;
+}
+.shape-circle:hover {
+  transform: translateX(13px);
 }
 .shape-card {
   position: absolute;
@@ -117,17 +139,69 @@
   border-radius: 80px 80px 5px 5px;
   background: var(--orange);
   transform: rotate(13deg);
+  transition: transform 0.28s ease;
+}
+.shape-card:hover {
+  transform: rotate(-7deg);
 }
 .shape-line {
   position: absolute;
   width: 125px;
-  height: 3px;
+  height: 27px;
   top: 25%;
   left: 10%;
+}
+.shape-line i {
+  position: absolute;
+  left: 0;
+  width: 125px;
+  height: 3px;
   background: var(--ink);
-  box-shadow:
-    0 12px 0 var(--ink),
-    0 24px 0 var(--ink);
+  transform-origin: left center;
+}
+.shape-line i:nth-child(1) {
+  top: 0;
+}
+.shape-line i:nth-child(2) {
+  top: 12px;
+}
+.shape-line i:nth-child(3) {
+  top: 24px;
+}
+.shape-line i:nth-child(odd).is-swinging {
+  animation: art-line-swing-left 0.9s ease-in-out;
+}
+.shape-line i:nth-child(even).is-swinging {
+  animation: art-line-swing-right 0.9s ease-in-out;
+}
+@keyframes art-line-swing-left {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-9deg);
+  }
+  68% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes art-line-swing-right {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(9deg);
+  }
+  68% {
+    transform: rotate(-5deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shape-line i.is-swinging {
+    animation: none;
+  }
 }
 .art-footer {
   position: absolute;

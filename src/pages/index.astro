@@ -202,8 +202,8 @@ const caseStudies = {
           <div class="window-grid">
             <span class="shape-circle"></span>
             <span class="shape-card"></span>
-            <span class="shape-line"></span>
-            <strong>Ideas<br />made <em>visible.</em></strong>
+            <span class="shape-line"><i></i><i></i><i></i></span>
+            <strong><span class="art-word">Ideas</span><br /><span class="art-word">made</span> <em class="art-word">visible.</em></strong>
           </div>
         </div>
         <div class="art-footer"><span>GOOD DESIGN GETS NOTICED.</span><span class="art-arrow">&#x2197;&#xFE0E;</span></div>
@@ -715,6 +715,15 @@ const caseStudies = {
 
       scheduleProcessMeasurement();
     }
+
+    document.querySelectorAll<HTMLElement>('.shape-line i').forEach((line) => {
+      line.addEventListener('pointerenter', () => {
+        line.classList.remove('is-swinging');
+        void line.offsetWidth;
+        line.classList.add('is-swinging');
+      });
+      line.addEventListener('animationend', () => line.classList.remove('is-swinging'));
+    });
   </script>
 
 </Layout>
