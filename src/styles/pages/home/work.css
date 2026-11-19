@@ -156,7 +156,7 @@
   border-radius: 50%;
   background: var(--acid);
   color: var(--ink);
-  content: "↗";
+  content: "\2197\FE0E";
   font-size: 0.75rem;
   line-height: 1;
 }

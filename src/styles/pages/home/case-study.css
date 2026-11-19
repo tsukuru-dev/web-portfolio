@@ -221,7 +221,7 @@
   position: absolute;
   left: 0;
   color: var(--blue);
-  content: "↗";
+  content: "\2197\FE0E";
 }
 .case-study-showcase {
   margin: 14px 0 0;
