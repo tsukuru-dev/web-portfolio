@@ -157,8 +157,20 @@
     grid-template-columns: 1fr;
     padding: 110px 0 65px;
   }
+  .hero-copy h1 {
+    max-width: none;
+    font-size: clamp(3.25rem, 12vw, 4.8rem);
+  }
+  .hero-copy h1 em {
+    font-size: 1.2em;
+  }
   .studio-art {
+    width: 100%;
     min-height: 480px;
+    transform: none;
+  }
+  .studio-art:hover {
+    transform: translateY(-3px);
   }
   .principles-heading,
   .section-heading,
