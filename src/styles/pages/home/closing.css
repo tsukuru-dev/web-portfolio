@@ -1,0 +1,101 @@
+.final-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-height: 520px;
+  padding-inline: max(48px, calc((100% - 1280px) / 2));
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+  align-items: center;
+}
+.final-cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  bottom: -30%;
+  left: 50%;
+  width: 72%;
+  background: var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.final-cta h2 {
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+}
+.cta-orbit {
+  position: relative;
+  width: 320px;
+  height: 165px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.cta-orbit:hover {
+  transform: translateY(-3px);
+}
+.cta-orbit span {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+.cta-orbit strong {
+  color: var(--acid);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.7fr;
+  gap: 55px;
+  padding: 55px 0 25px;
+  border-top: 1px solid var(--line);
+}
+.footer-brand p {
+  max-width: 250px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+.site-footer .brand-word {
+  font-size: 1.85rem;
+}
+.site-footer .brand-tag {
+  font-size: 0.5rem;
+}
+.site-footer h3 {
+  margin: 0 0 16px;
+  font: 700 0.59rem var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-footer > div:not(.footer-brand) a {
+  display: block;
+  width: fit-content;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-underline-offset: 4px;
+}
+.site-footer small {
+  grid-column: 1/-1;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.67rem;
+  text-align: center;
+}
+
+/* Keep the key showcase moments complete on shorter laptop viewports. */
