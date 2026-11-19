@@ -239,7 +239,7 @@ const caseStudies = {
             Good design isn't guesswork. We explore the possibilities, make deliberate decisions and refine every detail until the whole experience feels effortless.
           </p>
         </div>
-        <ol>
+        <ol class="process-steps">
           <li>
             <span>01</span>
             <div>
@@ -603,6 +603,120 @@ const caseStudies = {
 
       modal.querySelector<HTMLButtonElement>('.case-study-close')?.addEventListener('click', () => modal.close());
       modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
+    }
+
+    const processSteps = document.querySelector<HTMLOListElement>('.process-steps');
+
+    if (processSteps) {
+      const markers = Array.from(processSteps.querySelectorAll<HTMLElement>(':scope > li > span'));
+      let timelineFrame = 0;
+      let measurementFrame = 0;
+      let listPageTop = 0;
+      let sectionPageTop = 0;
+      let markerCentres: number[] = [];
+      let finalStepEnd = 0;
+      let previousProgress = -1;
+      let previousReachedMarker = -2;
+      let previousCurrentMarker = -2;
+
+      const updateProcessTimeline = () => {
+        timelineFrame = 0;
+        if (!markerCentres.length) return;
+
+        const timelineStart = markerCentres[0];
+        const timelineEnd = markerCentres[markerCentres.length - 1];
+        const scrollPlayhead = window.scrollY + window.innerHeight * 0.32 - listPageTop;
+        const progress = Math.round(
+          Math.max(0, Math.min(timelineEnd - timelineStart, scrollPlayhead - timelineStart)) * 2,
+        ) / 2;
+
+        if (progress !== previousProgress) {
+          processSteps.style.setProperty('--timeline-progress', `${progress}px`);
+          previousProgress = progress;
+        }
+
+        let reachedMarker = -1;
+        markerCentres.forEach((centre, index) => {
+          if (scrollPlayhead >= centre) reachedMarker = index;
+        });
+        let currentMarker = reachedMarker;
+        if (scrollPlayhead >= finalStepEnd) currentMarker = -1;
+
+        if (reachedMarker !== previousReachedMarker) {
+          markers.forEach((marker, index) => marker.classList.toggle('is-reached', index <= reachedMarker));
+          previousReachedMarker = reachedMarker;
+        }
+        if (currentMarker !== previousCurrentMarker) {
+          markers.forEach((marker, index) => marker.classList.toggle('is-current', index === currentMarker));
+          previousCurrentMarker = currentMarker;
+        }
+      };
+
+      const scheduleProcessTimeline = () => {
+        if (!timelineFrame) timelineFrame = window.requestAnimationFrame(updateProcessTimeline);
+      };
+
+      const measureProcessTimeline = () => {
+        measurementFrame = 0;
+        if (!markers.length) return;
+
+        const listRect = processSteps.getBoundingClientRect();
+        const sectionRect = processSteps.closest<HTMLElement>('.approach-section')?.getBoundingClientRect();
+        listPageTop = window.scrollY + listRect.top;
+        sectionPageTop = window.scrollY + (sectionRect?.top ?? listRect.top);
+        markerCentres = markers.map((marker) => {
+          const markerRect = marker.getBoundingClientRect();
+          return markerRect.top + markerRect.height / 2 - listRect.top;
+        });
+        const finalStep = markers[markers.length - 1].closest('li');
+        finalStepEnd = finalStep
+          ? finalStep.getBoundingClientRect().bottom - listRect.top
+          : markerCentres[markerCentres.length - 1];
+
+        processSteps.style.setProperty('--timeline-top', `${markerCentres[0]}px`);
+        processSteps.style.setProperty('--timeline-length', `${markerCentres[markerCentres.length - 1] - markerCentres[0]}px`);
+        previousProgress = -1;
+        updateProcessTimeline();
+      };
+
+      const scheduleProcessMeasurement = () => {
+        if (!measurementFrame) measurementFrame = window.requestAnimationFrame(measureProcessTimeline);
+      };
+
+      window.addEventListener('scroll', scheduleProcessTimeline, { passive: true });
+      window.addEventListener('resize', scheduleProcessMeasurement);
+      new ResizeObserver(scheduleProcessMeasurement).observe(processSteps);
+
+      processSteps.querySelectorAll<HTMLElement>(':scope > li > div').forEach((card, index) => {
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Go to step ${index + 1}`);
+
+        const goToStep = () => {
+          const markerCentre = markerCentres[index];
+          if (markerCentre === undefined) return;
+
+          let targetTop = listPageTop + markerCentre - window.innerHeight * 0.32;
+          if (index === 0) targetTop = sectionPageTop;
+          if (index === markers.length - 1) {
+            targetTop += 2;
+          }
+
+          window.scrollTo({
+            top: targetTop,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
+        };
+
+        card.addEventListener('click', goToStep);
+        card.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          goToStep();
+        });
+      });
+
+      scheduleProcessMeasurement();
     }
   </script>
 
