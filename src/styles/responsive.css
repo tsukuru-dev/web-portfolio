@@ -325,33 +325,31 @@
     bottom: 0;
     left: 50%;
     width: 125%;
+    aspect-ratio: auto;
     transform: translateX(-50%);
     border-radius: 50% 50% 0 0 / 42% 42% 0 0;
   }
   .final-playground {
     position: absolute;
-    top: 47%;
+    top: 53%;
     left: 50%;
-    width: 500px;
-    height: 360px;
-    transform: translateX(-50%) scale(0.62);
+    width: 620px;
+    height: 500px;
+    transform: translateX(-50%) scale(0.52);
     transform-origin: top center;
   }
   .cta-orbit {
-    position: absolute;
+    position: relative;
     z-index: 6;
-    top: auto;
-    right: auto;
-    bottom: 28px;
-    left: 50%;
-    width: min(292px, calc(100% - 42px));
-    min-height: 106px;
-    transform: translateX(-50%) rotate(5deg);
+    inset: auto;
+    width: min(276px, calc(100% - 10px));
+    min-height: 62px;
+    transform: none;
     justify-self: auto;
   }
   .cta-orbit:hover {
-    background: var(--paper);
-    transform: translateX(-50%) translateY(-5px) rotate(2deg);
+    background: var(--acid);
+    transform: translateY(-4px);
   }
   .site-footer {
     grid-template-columns: 1fr 1fr;
