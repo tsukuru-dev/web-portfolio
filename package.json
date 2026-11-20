@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/astro-wasi.mjs dev",
+    "setup:dev": "npm install --no-save --package-lock=false --force @astrojs/compiler-binding-wasm32-wasi@0.5.3",
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint . --max-warnings=0",
