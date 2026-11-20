@@ -167,7 +167,28 @@
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
-    padding: 110px 0 65px;
+    padding: 90px 0 65px;
+  }
+  .hero-actions {
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .hero-actions .button {
+    min-width: 0;
+    flex: 1 1 0;
+    gap: 10px;
+    padding-inline: 14px;
+    font-size: 0.64rem;
+    white-space: nowrap;
+  }
+  .hero-actions .text-link {
+    min-width: 0;
+    flex: 1 1 0;
+    justify-content: space-between;
+    gap: 9px;
+    white-space: nowrap;
   }
   .studio-art {
     min-height: 480px;
@@ -555,11 +576,17 @@
   h2 {
     font-size: 2.8rem;
   }
-  .hero-actions {
-    gap: 21px;
-  }
   .button {
     width: 100%;
+  }
+  .hero-actions .button {
+    width: auto;
+    padding-inline: 11px;
+    font-size: 0.58rem;
+  }
+  .hero-actions .text-link {
+    gap: 7px;
+    font-size: 0.6rem;
   }
   .studio-art {
     min-height: 410px;
