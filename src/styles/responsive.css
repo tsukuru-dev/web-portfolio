@@ -103,7 +103,7 @@
     gap: 50px;
   }
   .studio-values article {
-    padding-inline: 16px;
+    padding-inline: 0;
   }
   .final-cta {
     padding-inline: 28px;
@@ -300,6 +300,17 @@
   .studio-grid {
     gap: 60px;
   }
+  .studio-copy h2 {
+    margin-bottom: 18px;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+    line-height: 0.9;
+  }
+  .studio-copy > p:not(.eyebrow) {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
   .studio-values {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -307,12 +318,37 @@
   }
   .studio-values article,
   .studio-values article:first-child {
+    display: block;
+    grid-row: auto;
     padding: 22px 0 0;
     border-top: 1px solid rgba(24, 35, 43, 0.14);
     border-left: 0;
   }
+  .studio-values article:not(:first-child)::before {
+    display: none;
+  }
   .studio-values h3 {
     min-height: 0;
+    margin-bottom: 9px;
+    font-size: 2rem;
+    line-height: 0.92;
+  }
+  .studio-values article:first-child h3 {
+    font-size: 2.65rem;
+  }
+  .studio-values article:nth-child(2) h3 {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .studio-values .studio-value-accent h3 {
+    max-width: none;
+    font-size: 1.65rem;
+    line-height: 1;
+  }
+  .studio-values p {
+    max-width: none;
+    font-size: 0.86rem;
+    line-height: 1.45;
   }
   .studio-collab {
     grid-template-columns: 1fr;

@@ -93,3 +93,10 @@
   background: var(--blue);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .command-links a:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+}
+
