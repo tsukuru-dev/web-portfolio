@@ -2,17 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Manrope:wght@500;600;700&display=swap");
 
 :root {
-  --ink: #18232b;
-  --ink-soft: #30414b;
-  --paper: #f7f6f1;
-  --paper-deep: #ebeae2;
-  --blue: #526ee8;
-  --blue-dark: #3249ad;
-  --orange: #f36a46;
-  --acid: #d9ee7c;
-  --muted: #69747a;
-  --line: #d8dbd8;
-  --warm-display-cast: rgba(255, 219, 148, 0.4);
+  --ink: #182124;
+  --ink-soft: #303d3e;
+  --paper: #f7e8c9;
+  --paper-deep: #ebddbc;
+  --blue: #5268c1;
+  --blue-dark: #324590;
+  --orange: #f3643a;
+  --acid: #d9e167;
+  --muted: #696d66;
+  --line: #d8cfb4;
   --shell: min(1280px, calc(100% - 96px));
   --sans: "DM Sans", Arial, sans-serif;
   --display: "Manrope", Arial, sans-serif;
@@ -23,7 +22,7 @@
   box-sizing: border-box;
 }
 html {
-  background: #f8e8c3;
+  background: var(--paper);
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
@@ -35,24 +34,13 @@ body {
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
-body::after {
-  content: "";
-  position: fixed;
-  z-index: 9999;
-  top: calc(-1 * env(safe-area-inset-top, 0px));
-  right: calc(-1 * env(safe-area-inset-right, 0px));
-  bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
-  left: calc(-1 * env(safe-area-inset-left, 0px));
-  pointer-events: none;
-  background: var(--warm-display-cast);
-  mix-blend-mode: multiply;
-}
 a {
   color: inherit;
 }
 img {
   display: block;
   max-width: 100%;
+  filter: url("#warm-palette-filter");
 }
 button {
   font: inherit;
@@ -116,7 +104,7 @@ button:focus-visible {
   border-radius: 6px;
   padding: 17px 20px;
   background: var(--blue);
-  color: white;
+  color: #fff1d4;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.025em;
@@ -141,7 +129,7 @@ button:focus-visible {
   align-items: center;
   gap: 18px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #9ca4a6;
+  border-bottom: 1px solid #9c9b8a;
   font-size: 0.77rem;
   font-weight: 600;
   text-underline-offset: 4px;

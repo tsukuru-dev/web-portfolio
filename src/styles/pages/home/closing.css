@@ -52,7 +52,7 @@
   width: min(330px, 78%);
   height: 38px;
   margin: 12px 0 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 340 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 13 C95 -2 230 2 332 10' fill='none' stroke='%23f36a46' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M98 31 C164 14 239 14 292 21' fill='none' stroke='%23f36a46' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 340 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 13 C95 -2 230 2 332 10' fill='none' stroke='%23f3643a' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M98 31 C164 14 239 14 292 21' fill='none' stroke='%23f3643a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
   transform: rotate(-2deg);
 }
 .final-playground {
@@ -119,14 +119,14 @@
   color: var(--ink);
   font: 700 2.15rem/0.98 var(--display);
   letter-spacing: -0.04em;
-  box-shadow: 0 16px 0 rgba(24, 35, 43, 0.18);
+  box-shadow: 0 16px 0 rgba(24, 33, 36, 0.18);
   transform: rotate(-6deg);
   transition:
     box-shadow 0.28s ease,
     transform 0.28s ease;
 }
 .final-note:hover {
-  box-shadow: 0 22px 0 rgba(24, 35, 43, 0.14);
+  box-shadow: 0 22px 0 rgba(24, 33, 36, 0.14);
   transform: translateY(-6px) rotate(-3deg);
 }
 .final-note small {
@@ -151,7 +151,7 @@
   height: 400px;
   overflow: visible;
   fill: none;
-  stroke: rgba(217, 238, 124, 0.68);
+  stroke: rgba(217, 225, 103, 0.68);
   stroke-dasharray: 2 9;
   stroke-linecap: round;
   stroke-width: 2;
@@ -205,7 +205,7 @@
   width: 65px;
   height: 65px;
   border-radius: 38px 8px 8px;
-  background: #9eacf4;
+  background: #9ea2cb;
 }
 .final-shape-lilac:hover {
   transform: translateY(-6px) rotate(7deg) scale(1.05);

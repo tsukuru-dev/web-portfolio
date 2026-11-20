@@ -29,21 +29,21 @@
   padding: 18px 25px;
   border-radius: 7px;
   background: var(--blue);
-  color: white;
-  box-shadow: 12px 14px 0 #d6d9cb;
+  color: #fff1d4;
+  box-shadow: 12px 14px 0 #d6cda9;
 }
 .project-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid #c8cbc5;
+  border: 1px solid #c8c0a4;
   border-radius: 13px;
   background: var(--paper);
-  box-shadow: 0 22px 55px rgba(24, 35, 43, 0.13);
+  box-shadow: 0 22px 55px rgba(24, 33, 36, 0.13);
 }
 .project-preview {
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(24, 35, 43, 0.12);
+  border-bottom: 1px solid rgba(24, 33, 36, 0.12);
 }
 .project-info {
   position: relative;
@@ -87,10 +87,10 @@
 .project-disclaimer {
   display: inline-block;
   padding: 6px 9px;
-  border: 1px solid #cdd1d7;
+  border: 1px solid #cdc5b3;
   border-radius: 999px;
   color: var(--blue-dark);
-  background: #eef0fa;
+  background: #eee2d0;
   font-size: 0.48rem;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -130,11 +130,11 @@
   align-items: center;
   gap: 13px;
   padding: 12px 13px 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255, 241, 212, 0.32);
   border-radius: 5px;
   background: var(--blue);
-  color: white;
-  box-shadow: 6px 7px 0 rgba(24, 35, 43, 0.2);
+  color: #fff1d4;
+  box-shadow: 6px 7px 0 rgba(24, 33, 36, 0.2);
   font-family: var(--sans);
   appearance: none;
   cursor: pointer;
@@ -165,40 +165,40 @@
   transform: translateY(-2px);
 }
 .project-curry .project-status {
-  border-color: rgba(255, 241, 218, 0.32);
-  background: #4a2a22;
-  color: #fff1da;
+  border-color: rgba(255, 227, 181, 0.32);
+  background: #4a281c;
+  color: #ffe3b5;
 }
 .project-curry .project-status::after {
-  background: #efb137;
-  color: #4a2a22;
+  background: #efa72e;
+  color: #4a281c;
 }
 .project-fjd .project-status {
-  border-color: rgba(24, 59, 50, 0.28);
-  background: #d8ef79;
-  color: #183b32;
-  box-shadow: 5px 6px 0 #78905f;
+  border-color: rgba(24, 56, 42, 0.28);
+  background: #d8e265;
+  color: #18382a;
+  box-shadow: 5px 6px 0 #78884f;
 }
 .project-fjd .project-status::after {
-  background: #183b32;
-  color: #d8ef79;
+  background: #18382a;
+  color: #d8e265;
 }
 .project-nails .project-status {
-  border-color: rgba(255, 246, 239, 0.32);
-  background: #8c575b;
-  color: #fff6ef;
+  border-color: rgba(255, 232, 199, 0.32);
+  background: #8c524c;
+  color: #ffe8c7;
 }
 .project-nails .project-status::after {
-  background: #ead6d1;
-  color: #493b38;
+  background: #eacaae;
+  color: #49382f;
 }
 .project-card .project-status:active {
   filter: none;
-  box-shadow: 1px 1px 0 rgba(24, 35, 43, 0.24);
+  box-shadow: 1px 1px 0 rgba(24, 33, 36, 0.24);
   transform: translate(5px, 6px);
 }
 .project-fjd .project-status:active {
-  box-shadow: 1px 1px 0 #78905f;
+  box-shadow: 1px 1px 0 #78884f;
 }
 .project-link {
   justify-self: end;
@@ -213,7 +213,7 @@
 }
 .curry-preview {
   min-height: 630px;
-  background: #cb5b3e;
+  background: #cb5634;
 }
 .curry-preview > img {
   position: absolute;
@@ -228,8 +228,8 @@
   inset: 8% 9%;
   overflow: hidden;
   border-radius: 7px;
-  background: #e8b746;
-  box-shadow: 0 30px 70px rgba(65, 22, 11, 0.3);
+  background: #e8ad3a;
+  box-shadow: 0 30px 70px rgba(65, 21, 9, 0.3);
 }
 .browser-top {
   height: 30px;
@@ -237,19 +237,19 @@
   gap: 5px;
   align-items: center;
   padding: 0 10px;
-  background: #f1eee9;
+  background: #f1e1c2;
 }
 .browser-top i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #bbb;
+  background: #bbb09c;
 }
 .browser-top span {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: #8d8c87;
+  color: #8d8470;
   font-size: 0.48rem;
 }
 .curry-page {
@@ -257,7 +257,7 @@
   height: calc(100% - 30px);
   overflow: hidden;
   padding: 3.2%;
-  color: #39241d;
+  color: #392218;
 }
 .curry-brand {
   font: 700 clamp(1rem, 2.1vw, 2.1rem)/0.72 var(--display);
@@ -277,7 +277,7 @@
   letter-spacing: -0.075em;
 }
 .curry-page h3 em {
-  color: #fff1da;
+  color: #ffe3b5;
   font-family: var(--serif);
   font-weight: 600;
 }
@@ -286,7 +286,7 @@
   width: 51%;
   right: -1%;
   bottom: -1%;
-  filter: drop-shadow(15px 18px 12px rgba(50, 15, 5, 0.25));
+  filter: drop-shadow(15px 18px 12px rgba(50, 14, 4, 0.25));
 }
 .curry-page > .curry-hero-image {
   position: static;
@@ -314,11 +314,11 @@
 }
 .fjd-preview {
   padding: 24px;
-  background: #183b32;
-  color: #d8ef79;
+  background: #18382a;
+  color: #d8e265;
   background-image:
-    linear-gradient(#fff1 1px, transparent 1px),
-    linear-gradient(90deg, #fff1 1px, transparent 1px);
+    linear-gradient(#fff1d411 1px, transparent 1px),
+    linear-gradient(90deg, #fff1d411 1px, transparent 1px);
   background-size: 32px 32px;
 }
 .fjd-top {
@@ -335,10 +335,10 @@
   width: 255px;
   height: 255px;
   transform: translate(-50%, -50%) rotate(-18deg);
-  border: 7px solid #30463a;
+  border: 7px solid #304230;
   border-radius: 50%;
-  background: repeating-conic-gradient(#1e2d25 0 3deg, #2e4235 3deg 6deg);
-  box-shadow: 14px 20px 30px #0006;
+  background: repeating-conic-gradient(#1e2a1f 0 3deg, #2e3e2c 3deg 6deg);
+  box-shadow: 14px 20px 30px #00000066;
   display: grid;
   place-items: center;
 }
@@ -346,9 +346,9 @@
   position: relative;
   width: 170px;
   height: 170px;
-  border: 9px solid #b2bd9d;
+  border: 9px solid #b2b283;
   border-radius: 50%;
-  background: #1c3027;
+  background: #1c2d20;
 }
 .fjd-wheel i {
   position: absolute;
@@ -357,7 +357,7 @@
   width: 23px;
   height: 72px;
   border-radius: 5px;
-  background: linear-gradient(90deg, #899879, #e1e6c8);
+  background: linear-gradient(90deg, #898f65, #e1d9a6);
   transform-origin: 11px 81px;
 }
 .fjd-wheel i:nth-child(2) {
@@ -380,10 +380,10 @@
   height: 44px;
   display: grid;
   place-items: center;
-  border: 5px solid #647858;
+  border: 5px solid #647149;
   border-radius: 50%;
-  background: #aabb91;
-  color: #183b32;
+  background: #aab079;
+  color: #18382a;
   font-size: 0.55rem;
 }
 .fjd-copy {
@@ -398,7 +398,7 @@
 .fjd-copy strong {
   font: 600 clamp(1.8rem, 3.2vw, 3.3rem)/0.9 var(--display);
   letter-spacing: -0.06em;
-  color: #f7f7ef;
+  color: #f7e9c7;
 }
 .fjd-copy strong span {
   color: var(--acid);
@@ -412,8 +412,8 @@
 
 .nails-preview {
   padding: 25px;
-  background: #ead6d1;
-  color: #493b38;
+  background: #eacaae;
+  color: #49382f;
 }
 .nails-copy {
   position: relative;
@@ -431,7 +431,7 @@
   letter-spacing: -0.06em;
 }
 .nails-copy strong em {
-  color: #8c575b;
+  color: #8c524c;
   font-family: var(--serif);
 }
 .nails-photo {

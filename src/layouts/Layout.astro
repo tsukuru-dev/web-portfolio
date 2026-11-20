@@ -18,12 +18,20 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f8e8c3" />
+    <meta name="theme-color" content="#f7e8c9" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
+    <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+      <filter id="warm-palette-filter" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 0  0 0.943529 0 0 0  0 0 0.832157 0 0  0 0 0 1 0"
+        />
+      </filter>
+    </svg>
     <slot />
   </body>
 </html>

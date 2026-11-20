@@ -1,6 +1,6 @@
 .studio-section {
   padding: 88px 0;
-  background: #e5e9fa;
+  background: #e5dcd0;
 }
 .studio-grid {
   display: grid;
@@ -13,8 +13,8 @@
   padding: 25px;
   border-radius: 8px;
   background: var(--orange);
-  color: #fff7ed;
-  box-shadow: 18px 20px 0 #cdd5f4;
+  color: #ffe9c5;
+  box-shadow: 18px 20px 0 #cdc9cb;
   transform: rotate(-1.5deg);
   display: flex;
   flex-direction: column;
@@ -107,7 +107,7 @@
   bottom: 0;
   left: calc(var(--studio-value-gap) / -2);
   width: 1px;
-  background: rgba(24, 35, 43, 0.14);
+  background: rgba(24, 33, 36, 0.14);
   content: "";
 }
 .studio-values h3 {
@@ -159,8 +159,8 @@
   align-items: center;
   padding: clamp(30px, 4vw, 52px);
   border-radius: 14px;
-  background: #fbfaf7;
-  border: 1px solid rgba(24, 35, 43, 0.14);
+  background: #fbecce;
+  border: 1px solid rgba(24, 33, 36, 0.14);
 }
 .studio-collab .eyebrow {
   margin-bottom: 22px;
@@ -178,7 +178,7 @@
 .studio-collab > p {
   margin: 0;
   padding-left: clamp(28px, 4vw, 58px);
-  border-left: 1px solid rgba(24, 35, 43, 0.14);
+  border-left: 1px solid rgba(24, 33, 36, 0.14);
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.65;

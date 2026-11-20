@@ -5,14 +5,14 @@
   padding: 0;
   overflow: auto;
   border: 0;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 241, 212, 0.28);
   border-radius: 20px;
   background: var(--paper);
   color: var(--ink);
-  box-shadow: 0 40px 120px rgba(13, 20, 25, 0.42);
+  box-shadow: 0 40px 120px rgba(13, 19, 21, 0.42);
 }
 .case-study-modal::backdrop {
-  background: rgba(17, 25, 31, 0.68);
+  background: rgba(17, 24, 26, 0.68);
   backdrop-filter: blur(10px) saturate(0.85);
 }
 .case-study-panel {
@@ -69,7 +69,7 @@
   flex-direction: column;
   gap: 38px;
   background: var(--blue);
-  color: white;
+  color: #fff1d4;
 }
 .case-study-identity .eyebrow {
   color: var(--acid);
@@ -95,7 +95,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background: #e5e9fa;
+  background: #e5dcd0;
   color: var(--ink);
 }
 .case-study-overview > span {
@@ -164,7 +164,7 @@
 }
 .case-study-typography-card {
   border: 1px solid var(--line);
-  background: #f1f0e9;
+  background: #f1e2c2;
 }
 .case-study-typography-card > span {
   color: var(--blue-dark);
@@ -237,13 +237,13 @@
   gap: 6px;
   padding: 0 14px;
   border-bottom: 1px solid var(--line);
-  background: #ecebe4;
+  background: #ecdebe;
 }
 .case-study-browser-bar i {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #b7b8b2;
+  background: #b7ae94;
 }
 .case-study-browser-bar span {
   margin-left: auto;
@@ -282,7 +282,7 @@
   padding: 10px 13px;
   border-radius: 4px;
   background: var(--blue);
-  color: white;
+  color: #fff1d4;
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -296,7 +296,7 @@
   background: var(--blue-dark);
 }
 .case-study-identity .case-study-website:not(.is-disabled):hover {
-  background: #c9df68;
+  background: #c9d257;
 }
 .case-study-website.is-disabled {
   cursor: not-allowed;
@@ -308,7 +308,7 @@
   border: 0;
   border-left: 4px solid var(--orange);
   border-radius: 0;
-  background: #f0eee4;
+  background: #f0e1be;
   color: var(--ink-soft);
   font-size: 0.74rem;
   line-height: 1.6;
@@ -348,7 +348,7 @@
   padding: 26px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #e5e9fa;
+  background: #e5dcd0;
 }
 .case-study-colour-card > span {
   color: var(--blue-dark);
@@ -377,7 +377,7 @@
   padding: clamp(24px, 3vw, 32px);
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #f1f0e9;
+  background: #f1e2c2;
 }
 .case-study-brief {
   min-height: 155px;
@@ -433,7 +433,7 @@
 .case-study-grid li {
   position: relative;
   padding: 12px 0 12px 22px;
-  border-top: 1px solid rgba(24, 35, 43, 0.12);
+  border-top: 1px solid rgba(24, 33, 36, 0.12);
 }
 .case-study-grid li::before {
   position: absolute;
@@ -447,7 +447,7 @@
 }
 .case-study-palette section {
   padding-top: 14px;
-  border-top: 1px solid rgba(24, 35, 43, 0.14);
+  border-top: 1px solid rgba(24, 33, 36, 0.14);
 }
 .case-study-palette h4 {
   margin: 0 0 10px;
@@ -476,7 +476,7 @@
   width: fit-content;
   padding: 5px 7px;
   border-radius: 999px;
-  background: #dfe4f8;
+  background: #dfd7ce;
   color: var(--blue-dark);
   font-size: 0.58rem;
   font-weight: 700;
@@ -532,7 +532,7 @@
   width: 44px;
   height: 44px;
   flex: 0 0 auto;
-  border: 1px solid #18232b18;
+  border: 1px solid #18212418;
   border-radius: 10px;
 }
 .case-study-palette span {

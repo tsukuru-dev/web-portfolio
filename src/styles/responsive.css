@@ -194,7 +194,7 @@
     max-width: 480px;
   }
   .section-heading > .work-note {
-    box-shadow: 8px 9px 0 #d6d9cb;
+    box-shadow: 8px 9px 0 #d6cda9;
   }
   .case-study-modal {
     width: calc(100% - 20px);
@@ -329,7 +329,7 @@
     display: block;
     grid-row: auto;
     padding: 22px 0 0;
-    border-top: 1px solid rgba(24, 35, 43, 0.14);
+    border-top: 1px solid rgba(24, 33, 36, 0.14);
     border-left: 0;
   }
   .studio-values article:not(:first-child)::before {
@@ -364,7 +364,7 @@
   }
   .studio-collab > p {
     padding: 24px 0 0;
-    border-top: 1px solid rgba(24, 35, 43, 0.14);
+    border-top: 1px solid rgba(24, 33, 36, 0.14);
     border-left: 0;
   }
   .studio-card {
@@ -454,7 +454,7 @@
     gap: 8px;
     border-radius: 0;
     background: transparent;
-    color: white;
+    color: #fff1d4;
     box-shadow: none;
     transform: translate(-50%, -50%);
     justify-self: auto;
@@ -619,10 +619,6 @@
   }
 }
 
-@media print, (forced-colors: active) {
-  body::after {
-    display: none;
-  }
-}
+
 
 

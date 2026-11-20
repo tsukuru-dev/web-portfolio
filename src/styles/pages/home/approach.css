@@ -13,12 +13,12 @@
   background:
     radial-gradient(
       circle at 3% 112%,
-      rgba(243, 106, 70, 0.2) 0 300px,
+      rgba(243, 100, 58, 0.2) 0 300px,
       transparent 261px
     ),
-    #e5e9fa;
+    #e5dcd0;
   color: var(--ink);
-  box-shadow: 0 24px 60px rgba(24, 35, 43, 0.14);
+  box-shadow: 0 24px 60px rgba(24, 33, 36, 0.14);
 }
 .process-copy .eyebrow {
   color: var(--blue-dark);
@@ -43,7 +43,7 @@
   bottom: -0.2em;
   left: -1%;
   height: 14px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 24' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C200 5 395 3 496 17 Q500 19.5 496 22 C330 23 190 13 4 17 Q0 15.5 4 14 Z' fill='%23d9ee7c'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 24' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C200 5 395 3 496 17 Q500 19.5 496 22 C330 23 190 13 4 17 Q0 15.5 4 14 Z' fill='%23d9e167'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
   content: "";
   transform: rotate(-2.25deg);
   transform-origin: center;
@@ -76,7 +76,7 @@
   width: 2px;
   height: var(--timeline-length);
   border-radius: 999px;
-  background: rgba(24, 35, 43, 0.28);
+  background: rgba(24, 33, 36, 0.28);
   content: "";
   pointer-events: none;
   transform: translateX(-50%);
@@ -96,9 +96,9 @@
 }
 .process li > div {
   padding: 22px;
-  border: 1px solid rgba(24, 35, 43, 0.12);
+  border: 1px solid rgba(24, 33, 36, 0.12);
   border-radius: 8px;
-  background: rgba(247, 246, 241, 0.72);
+  background: rgba(247, 232, 201, 0.72);
   cursor: pointer;
   transition:
     background 0.2s,
@@ -110,7 +110,7 @@
   outline-offset: 3px;
 }
 .process li:hover > div {
-  border-color: rgba(82, 110, 232, 0.35);
+  border-color: rgba(82, 104, 193, 0.35);
   background: var(--paper);
   transform: translateX(4px);
 }
@@ -123,12 +123,12 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  border: 1px solid rgba(24, 35, 43, 0.12);
+  border: 1px solid rgba(24, 33, 36, 0.12);
   background: var(--paper);
   color: var(--ink);
   font-size: 0.64rem;
   font-weight: 700;
-  box-shadow: 0 0 0 4px #e5e9fa;
+  box-shadow: 0 0 0 4px #e5dcd0;
   transition:
     background 0.25s,
     box-shadow 0.25s,
@@ -137,12 +137,12 @@
 .process li > span.is-reached {
   border-color: var(--orange);
   background: var(--orange);
-  color: white;
+  color: #fff1d4;
 }
 .process li > span.is-current {
   background: var(--orange);
   box-shadow:
-    0 0 0 4px #e5e9fa,
+    0 0 0 4px #e5dcd0,
     0 0 0 7px var(--orange);
   transform: scale(1.16);
 }
