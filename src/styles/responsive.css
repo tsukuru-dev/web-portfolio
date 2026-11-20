@@ -99,7 +99,11 @@
     grid-template-columns: 1fr auto;
   }
   .studio-grid {
+    grid-template-columns: 0.85fr 1.15fr;
     gap: 50px;
+  }
+  .studio-values article {
+    padding-inline: 16px;
   }
   .final-cta {
     padding-inline: 28px;
@@ -295,6 +299,29 @@
   }
   .studio-grid {
     gap: 60px;
+  }
+  .studio-values {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 34px;
+  }
+  .studio-values article,
+  .studio-values article:first-child {
+    padding: 22px 0 0;
+    border-top: 1px solid rgba(24, 35, 43, 0.14);
+    border-left: 0;
+  }
+  .studio-values h3 {
+    min-height: 0;
+  }
+  .studio-collab {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .studio-collab > p {
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(24, 35, 43, 0.14);
+    border-left: 0;
   }
   .studio-card {
     width: min(500px, 95%);
