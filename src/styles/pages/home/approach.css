@@ -171,4 +171,25 @@
   line-height: 1.4;
   text-transform: uppercase;
 }
+.process-card-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.process li .process-card-meta .process-card-eyebrow {
+  margin: 0;
+}
+.process-duration {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid rgba(243, 100, 58, 0.24);
+  border-radius: 999px;
+  background: #f3c57e;
+  color: var(--ink);
+  font: 700 0.58rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
