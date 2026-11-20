@@ -152,6 +152,62 @@
   }
 }
 
+@media (min-width: 701px) and (max-width: 950px) {
+  .final-cta::before {
+    clip-path: circle(
+      var(--final-curve-radius) at
+      calc(40% + var(--final-curve-radius)) 70%
+    );
+  }
+  .final-playground {
+    width: 100%;
+    height: 470px;
+  }
+  .final-playground .final-note {
+    top: 162px;
+    left: 60px;
+    width: calc(100% - 82px);
+    min-height: 150px;
+    padding: 24px 27px;
+    gap: 18px;
+    font-size: clamp(1.25rem, 2.7vw, 1.52rem);
+  }
+  .final-playground .final-hat {
+    top: 58px;
+    left: 178px;
+    transform: scale(0.52) rotate(10deg);
+  }
+  .final-playground .final-orbit {
+    top: 142px;
+    left: -80px;
+    width: 310px;
+    height: 350px;
+    rotate:-45deg;
+  }
+  .final-orbit-default {
+    display: none;
+  }
+  .final-orbit-tablet {
+    display: block;
+  }
+  .final-playground .final-shape-acid {
+    top: 78px;
+    left: 72px;
+  }
+  .final-playground .final-shape-orange {
+    top: 20px;
+    right: 15px;
+  }
+  .final-playground .final-shape-paper {
+    right: 50px;
+    bottom: 70px;
+  }
+  .final-playground .final-shape-lilac {
+    left: 50px;
+    bottom: 14px;
+  }
+}
+
 @media (max-width: 700px) {
   html {
     scroll-padding-top: 0;

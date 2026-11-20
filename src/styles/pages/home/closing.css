@@ -156,6 +156,9 @@
   stroke-linecap: round;
   stroke-width: 2;
 }
+.final-orbit-tablet {
+  display: none;
+}
 .final-shape {
   position: absolute;
   z-index: 2;
