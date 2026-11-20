@@ -124,8 +124,8 @@
     --shell: min(100% - 32px, 1280px);
   }
   .command-shell {
-    top: auto;
-    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    bottom: auto;
     width: max-content;
     max-width: calc(100% - 20px);
   }

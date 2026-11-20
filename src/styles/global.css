@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 html {
-  background: #f7e8c9;
+  background: #f8e8c3;
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
@@ -39,7 +39,10 @@ body::after {
   content: "";
   position: fixed;
   z-index: 9999;
-  inset: 0;
+  top: calc(-1 * env(safe-area-inset-top, 0px));
+  right: calc(-1 * env(safe-area-inset-right, 0px));
+  bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
+  left: calc(-1 * env(safe-area-inset-left, 0px));
   pointer-events: none;
   background: var(--warm-display-cast);
   mix-blend-mode: multiply;
