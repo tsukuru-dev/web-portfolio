@@ -23,10 +23,12 @@
   box-sizing: border-box;
 }
 html {
+  background: #f7e8c9;
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
 body {
+  min-height: 100dvh;
   margin: 0;
   color: var(--ink);
   background: var(--paper);
