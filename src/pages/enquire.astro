@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CommandBar from '../components/CommandBar.astro';
-import { budgets, projectTypes, timelines } from '../data/enquiry';
+import { budgets, deliveryOptions, projectStartOptions, projectTypes } from '../data/enquiry';
 import '../styles/enquire.css';
 
 const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
@@ -14,35 +14,36 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <CommandBar current="enquire" />
 
   <main id="main" class="enquiry-page" tabindex="-1">
-    <section class="enquiry-intro shell" id="top">
-      <div>
-        <p class="eyebrow"><span></span> Start a project</p>
-        <h1>Tell us what<br />you’re <em>building.</em></h1>
-      </div>
-      <div class="enquiry-intro-note">
-        <span>01</span>
-        <p>A few thoughtful questions now means a much more useful first conversation later.</p>
-      </div>
-    </section>
-
     <section class="enquiry-layout shell">
       <aside class="enquiry-aside">
-        <p class="eyebrow">Good to know</p>
-        <h2>What happens next?</h2>
+        <p class="eyebrow"><span></span> Your story starts here</p>
+        <h2>Tell us what you’re <em>looking for.</em></h2>
         <ol>
-          <li><span>01</span><p>We’ll read through the details and make sure the project feels like a good fit.</p></li>
-          <li><span>02</span><p>You’ll hear back with a few initial thoughts and the clearest next step.</p></li>
-          <li><span>03</span><p>If it makes sense, we’ll arrange a relaxed discovery call and shape the brief together.</p></li>
+          <li>
+            <span class="aside-step-number">01</span>
+            <div>
+              <p class="aside-step-title">First, we get curious</p>
+              <p>We'll read through your enquiry, get a feel for your business and start thinking about what could work for you.</p>
+            </div>
+          </li>
+          <li>
+            <span class="aside-step-number">02</span>
+            <div>
+              <p class="aside-step-title">Then, we'll get talking</p>
+              <p>We'll be in touch to explore your ideas, understand what you need and discuss how we can make it happen.</p>
+            </div>
+          </li>
+          <li>
+            <span class="aside-step-number">03</span>
+            <div>
+              <p class="aside-step-title">We make a plan and make it happen</p>
+              <p>We'll put together a tailored approach, with a clear scope, timeline and quote that work for your business and your budget.</p>
+            </div>
+          </li>
         </ol>
-        <p class="availability-note"><i></i> Currently considering new projects.</p>
       </aside>
 
       <form id="enquiry-form" class="enquiry-form" action="/api/enquiry" method="post" novalidate>
-        <div class="form-heading">
-          <p class="eyebrow">Project enquiry</p>
-          <p>Required fields are marked with an asterisk.</p>
-        </div>
-
         <section class="form-section" aria-labelledby="about-you-title">
           <div class="form-section-title"><span>01</span><h2 id="about-you-title">About you</h2></div>
           <div class="field-grid">
@@ -53,11 +54,11 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             <label class="field"><span>Email address *</span><input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
             <label class="field"><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" maxlength="30" /></label>
           </div>
-          <label class="field"><span>Current website</span><input name="websiteUrl" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="yourwebsite.co.uk" /></label>
+          <label class="field"><span>Current website (if you have one)</span><input name="websiteUrl" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="yourwebsite.co.uk" /></label>
         </section>
 
         <section class="form-section" aria-labelledby="project-title">
-          <div class="form-section-title"><span>02</span><h2 id="project-title">The project</h2></div>
+          <div class="form-section-title"><span>02</span><h2 id="project-title">Website & Requirements</h2></div>
           <fieldset class="choice-field project-type-field">
             <legend>What do you need? *</legend>
             <p>Choose everything that applies.</p>
@@ -74,7 +75,29 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           <div class="form-section-title"><span>03</span><h2 id="practical-title">The practical bits</h2></div>
           <div class="select-grid">
             <label class="field"><span>Working budget *</span><select name="budget" required><option value="">Choose a range</option>{budgets.map((budget) => <option value={budget}>{budget}</option>)}</select></label>
-            <label class="field"><span>Ideal timeline *</span><select name="timeline" required><option value="">Choose a timeline</option>{timelines.map((timeline) => <option value={timeline}>{timeline}</option>)}</select></label>
+            <label class="field"><span>When would you like to start? *</span><select name="projectStart" required><option value="">Choose a starting point</option>{projectStartOptions.map((option) => <option value={option}>{option}</option>)}</select></label>
+            <label class="field"><span>When do you need the work delivered by (ideally)? *</span><select name="deliveryDeadline" required><option value="">Choose an ideal timeframe</option>{deliveryOptions.map((option) => <option value={option}>{option}</option>)}</select></label>
+            <div class="field delivery-date-field" hidden>
+              <span>Ideal delivery date *</span>
+              <div class="date-picker">
+                <input class="date-picker-display" id="delivery-date-display" type="text" placeholder="Choose a date" readonly aria-haspopup="dialog" aria-controls="delivery-date-calendar" aria-expanded="false" />
+                <input name="deliveryDate" type="hidden" />
+                <button class="date-picker-toggle" type="button" aria-label="Open delivery date calendar" aria-controls="delivery-date-calendar" aria-expanded="false"><span aria-hidden="true"></span></button>
+                <div class="date-picker-popover" id="delivery-date-calendar" role="dialog" aria-label="Choose an ideal delivery date" hidden>
+                  <div class="date-picker-header">
+                    <button class="date-picker-nav date-picker-prev" type="button" aria-label="Previous month">←</button>
+                    <strong class="date-picker-month" aria-live="polite"></strong>
+                    <button class="date-picker-nav date-picker-next" type="button" aria-label="Next month">→</button>
+                  </div>
+                  <div class="date-picker-weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+                  <div class="date-picker-grid" role="grid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-note">
+            <strong>Your website, typically live in 1–2 weeks.</strong>
+            <p>Estimated for straightforward websites, subject to scope, content readiness and feedback. More complex projects receive a bespoke timeline.</p>
           </div>
         </section>
 
@@ -109,6 +132,120 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       const errors = document.querySelector<HTMLElement>('#form-errors')!;
       const errorList = errors.querySelector<HTMLUListElement>('ul')!;
       const status = document.querySelector<HTMLElement>('#form-status')!;
+      const deliverySelect = form.querySelector<HTMLSelectElement>('select[name="deliveryDeadline"]')!;
+      const deliveryDateField = form.querySelector<HTMLElement>('.delivery-date-field')!;
+      const deliveryDateInput = form.querySelector<HTMLInputElement>('input[name="deliveryDate"]')!;
+      const deliveryDateDisplay = form.querySelector<HTMLInputElement>('.date-picker-display')!;
+      const datePicker = form.querySelector<HTMLElement>('.date-picker')!;
+      const dateToggle = form.querySelector<HTMLButtonElement>('.date-picker-toggle')!;
+      const datePopover = form.querySelector<HTMLElement>('.date-picker-popover')!;
+      const dateGrid = form.querySelector<HTMLElement>('.date-picker-grid')!;
+      const dateMonth = form.querySelector<HTMLElement>('.date-picker-month')!;
+      const datePrev = form.querySelector<HTMLButtonElement>('.date-picker-prev')!;
+      const dateNext = form.querySelector<HTMLButtonElement>('.date-picker-next')!;
+
+      const tomorrow = new Date();
+      tomorrow.setHours(0, 0, 0, 0);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const minimumDate = [
+        tomorrow.getFullYear(),
+        String(tomorrow.getMonth() + 1).padStart(2, '0'),
+        String(tomorrow.getDate()).padStart(2, '0'),
+      ].join('-');
+      let calendarMonth = new Date(tomorrow.getFullYear(), tomorrow.getMonth(), 1);
+
+      const toIsoDate = (date: Date) => [
+        date.getFullYear(),
+        String(date.getMonth() + 1).padStart(2, '0'),
+        String(date.getDate()).padStart(2, '0'),
+      ].join('-');
+      const closeCalendar = () => {
+        datePopover.hidden = true;
+        dateToggle.setAttribute('aria-expanded', 'false');
+        deliveryDateDisplay.setAttribute('aria-expanded', 'false');
+      };
+      const renderCalendar = () => {
+        const year = calendarMonth.getFullYear();
+        const month = calendarMonth.getMonth();
+        dateMonth.textContent = calendarMonth.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+        dateGrid.replaceChildren();
+
+        const leadingDays = (new Date(year, month, 1).getDay() + 6) % 7;
+        for (let index = 0; index < leadingDays; index += 1) {
+          const spacer = document.createElement('span');
+          spacer.className = 'date-picker-spacer';
+          spacer.setAttribute('aria-hidden', 'true');
+          dateGrid.append(spacer);
+        }
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const date = new Date(year, month, day);
+          const isoDate = toIsoDate(date);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'date-picker-day';
+          button.textContent = String(day);
+          button.setAttribute('role', 'gridcell');
+          button.setAttribute('aria-label', date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }));
+          button.setAttribute('aria-selected', String(deliveryDateInput.value === isoDate));
+          button.disabled = isoDate < minimumDate;
+          if (deliveryDateInput.value === isoDate) button.classList.add('is-selected');
+          button.addEventListener('click', () => {
+            deliveryDateInput.value = isoDate;
+            deliveryDateDisplay.value = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            deliveryDateDisplay.removeAttribute('aria-invalid');
+            closeCalendar();
+          });
+          dateGrid.append(button);
+        }
+
+        datePrev.disabled = year === tomorrow.getFullYear() && month === tomorrow.getMonth();
+      };
+      const openCalendar = () => {
+        datePopover.hidden = false;
+        datePopover.classList.remove('is-above');
+        const pickerRect = datePicker.getBoundingClientRect();
+        const availableBelow = window.innerHeight - pickerRect.bottom;
+        const availableAbove = pickerRect.top;
+        if (availableBelow < 280 && availableAbove > availableBelow) datePopover.classList.add('is-above');
+        dateToggle.setAttribute('aria-expanded', 'true');
+        deliveryDateDisplay.setAttribute('aria-expanded', 'true');
+        renderCalendar();
+      };
+      const toggleCalendar = () => datePopover.hidden ? openCalendar() : closeCalendar();
+      dateToggle.addEventListener('click', toggleCalendar);
+      deliveryDateDisplay.addEventListener('click', toggleCalendar);
+      datePrev.addEventListener('click', () => {
+        calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1);
+        renderCalendar();
+      });
+      dateNext.addEventListener('click', () => {
+        calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 1);
+        renderCalendar();
+      });
+      document.addEventListener('pointerdown', (event) => {
+        if (!datePicker.contains(event.target as Node)) closeCalendar();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !datePopover.hidden) {
+          closeCalendar();
+          dateToggle.focus();
+        }
+      });
+
+      const updateDeliveryDate = () => {
+        const needsDate = deliverySelect.value === 'I have a fixed date';
+        deliveryDateField.hidden = !needsDate;
+        deliveryDateDisplay.required = needsDate;
+        if (!needsDate) {
+          deliveryDateInput.value = '';
+          deliveryDateDisplay.value = '';
+          closeCalendar();
+        }
+      };
+      deliverySelect.addEventListener('change', updateDeliveryDate);
+      updateDeliveryDate();
 
       const clearErrors = () => {
         form.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
@@ -125,7 +262,13 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         clearErrors();
         const requiredFields = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[required]')];
         requiredFields.forEach((field) => {
-          if (!field.value.trim() || !field.validity.valid) addError(field, `Please check ${field.closest('label')?.querySelector('span')?.textContent?.replace('*', '').trim().toLowerCase() || 'this field'}.`);
+          if (field === deliveryDateDisplay && deliveryDateInput.value && deliveryDateInput.value < minimumDate) {
+            addError(field, 'Please choose a delivery date in the future.');
+          } else if (field === deliveryDateDisplay && !deliveryDateInput.value) {
+            addError(field, 'Please choose an ideal delivery date.');
+          } else if (!field.value.trim() || !field.validity.valid) {
+            addError(field, `Please check ${field.closest('label')?.querySelector('span')?.textContent?.replace('*', '').trim().toLowerCase() || 'this field'}.`);
+          }
         });
         if (!projectChecks.some((field) => field.checked)) addError(projectField, 'Choose at least one project type.');
         errors.hidden = errorList.children.length === 0;
@@ -149,6 +292,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           const result = await response.json();
           if (!response.ok) throw new Error(result.error || 'The enquiry could not be sent. Please try again.');
           form.reset();
+          updateDeliveryDate();
           clearErrors();
           status.textContent = 'Enquiry received. We’ll be in touch after reviewing the details.';
           (window as Window & { turnstile?: { reset: () => void } }).turnstile?.reset();

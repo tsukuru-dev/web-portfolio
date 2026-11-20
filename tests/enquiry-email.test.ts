@@ -13,7 +13,9 @@ const enquiry: Enquiry = {
   websiteUrl: 'https://example.com',
   projectTypes: ['A new website'],
   budget: '£2k–£4k',
-  timeline: 'Ready to start now',
+  projectStart: 'As soon as possible',
+  deliveryDeadline: 'Within 1–2 weeks',
+  deliveryDate: '',
   message: 'We need a distinctive new website.',
 };
 

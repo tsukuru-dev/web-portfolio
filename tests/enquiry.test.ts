@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { budgets, projectTypes, timelines } from '../src/data/enquiry';
+import { budgets, deliveryOptions, projectStartOptions, projectTypes } from '../src/data/enquiry';
 import { validateEnquiry } from '../src/lib/enquiry';
 
 function validForm(overrides: Record<string, string | string[]> = {}): FormData {
@@ -11,7 +11,9 @@ function validForm(overrides: Record<string, string | string[]> = {}): FormData 
     websiteUrl: 'example.com',
     projectType: [projectTypes[0]],
     budget: budgets[0],
-    timeline: timelines[0],
+    projectStart: projectStartOptions[0],
+    deliveryDeadline: deliveryOptions[0],
+    deliveryDate: '',
     message: 'We need a distinctive new website.',
     ...overrides,
   };
@@ -37,7 +39,8 @@ describe('validateEnquiry', () => {
     ['invalid project type', { projectType: ['Something unexpected'] }],
     ['duplicate project type', { projectType: [projectTypes[0], projectTypes[0]] }],
     ['invalid budget', { budget: 'A million pounds' }],
-    ['invalid timeline', { timeline: 'Yesterday' }],
+    ['invalid starting point', { projectStart: 'Last year' }],
+    ['invalid delivery timeframe', { deliveryDeadline: 'Yesterday' }],
     ['invalid phone', { phone: 'call-me' }],
     ['invalid website protocol', { websiteUrl: 'javascript:alert(1)' }],
   ])('rejects %s', (_label, overrides) => {
@@ -51,5 +54,10 @@ describe('validateEnquiry', () => {
 
   it('rejects an oversized message', () => {
     expect(() => validateEnquiry(validForm({ message: 'x'.repeat(3001) }))).toThrow();
+  });
+
+  it('requires a date when a fixed delivery date is selected', () => {
+    expect(() => validateEnquiry(validForm({ deliveryDeadline: 'I have a fixed date', deliveryDate: '' }))).toThrow();
+    expect(validateEnquiry(validForm({ deliveryDeadline: 'I have a fixed date', deliveryDate: '2027-02-15' })).deliveryDate).toBe('2027-02-15');
   });
 });

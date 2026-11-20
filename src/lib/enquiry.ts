@@ -1,4 +1,4 @@
-import { budgets, projectTypes, timelines } from '../data/enquiry';
+import { budgets, deliveryOptions, projectStartOptions, projectTypes } from '../data/enquiry';
 
 export type Enquiry = {
   name: string;
@@ -8,7 +8,9 @@ export type Enquiry = {
   websiteUrl: string;
   projectTypes: string[];
   budget: string;
-  timeline: string;
+  projectStart: string;
+  deliveryDeadline: string;
+  deliveryDate: string;
   message: string;
 };
 
@@ -36,7 +38,9 @@ export function validateEnquiry(form: FormData): Enquiry {
     websiteUrl: field('websiteUrl', 300, false),
     projectTypes: selectedTypes as string[],
     budget: field('budget', 40),
-    timeline: field('timeline', 40),
+    projectStart: field('projectStart', 40),
+    deliveryDeadline: field('deliveryDeadline', 40),
+    deliveryDate: field('deliveryDate', 10, false),
     message: field('message', 3000),
   };
 
@@ -55,7 +59,10 @@ export function validateEnquiry(form: FormData): Enquiry {
     }
   }
   if (!budgets.includes(enquiry.budget as typeof budgets[number])) throw new Error('Please choose a valid budget range.');
-  if (!timelines.includes(enquiry.timeline as typeof timelines[number])) throw new Error('Please choose a valid timeline.');
+  if (!projectStartOptions.includes(enquiry.projectStart as typeof projectStartOptions[number])) throw new Error('Please choose a valid starting point.');
+  if (!deliveryOptions.includes(enquiry.deliveryDeadline as typeof deliveryOptions[number])) throw new Error('Please choose a valid delivery timeframe.');
+  if (enquiry.deliveryDeadline === 'I have a fixed date' && !enquiry.deliveryDate) throw new Error('Please choose an ideal delivery date.');
+  if (enquiry.deliveryDate && !/^\d{4}-\d{2}-\d{2}$/.test(enquiry.deliveryDate)) throw new Error('Please choose a valid delivery date.');
 
   return enquiry;
 }
