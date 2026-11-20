@@ -6,53 +6,267 @@
   min-height: 520px;
   padding-inline: max(48px, calc((100% - 1280px) / 2));
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 50px;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 30px;
   align-items: center;
 }
+.final-desktop {
+  display: contents;
+}
+.final-mobile {
+  display: none;
+}
 .final-cta::before {
+  --final-curve-radius: max(500px, 40vw);
   content: "";
   position: absolute;
   z-index: -1;
-  top: -30%;
-  bottom: -30%;
-  left: 50%;
-  width: 72%;
+  inset: 0;
   background: var(--blue);
-  border-radius: 50%;
+  clip-path: circle(
+    var(--final-curve-radius) at
+    calc(35% + var(--final-curve-radius)) 70%
+  );
   pointer-events: none;
 }
 .final-cta h2 {
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  margin-top: 30px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(4rem, 6vw, 6.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  word-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.final-cta h2 span {
+  display: block;
+  white-space: nowrap;
+}
+.final-copy {
+  position: relative;
+  z-index: 2;
+}
+.final-scribble {
+  display: block;
+  width: min(330px, 78%);
+  height: 38px;
+  margin: 12px 0 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 340 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 13 C95 -2 230 2 332 10' fill='none' stroke='%23f36a46' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M98 31 C164 14 239 14 292 21' fill='none' stroke='%23f36a46' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(-2deg);
+}
+.final-playground {
+  position: relative;
+  z-index: 1;
+  width: min(620px, 52vw);
+  height: 500px;
+  justify-self: end;
+}
+.final-hat {
+  position: absolute;
+  z-index: 6;
+  top: 18px;
+  left: 230px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: scale(0.72) rotate(10deg);
+  transform-origin: top left;
+}
+.final-hat > .final-hat-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0;
+  background: transparent;
+  transform-origin: 82% 72%;
+}
+.final-hat:hover .final-hat-shape,
+.final-hat:focus-visible .final-hat-shape {
+  animation: final-hat-pulse 0.5s ease-out forwards;
+}
+@keyframes final-hat-pulse {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1.07);
+  }
+}
+.final-hat b {
+  background: var(--orange);
+}
+.final-note {
+  position: absolute;
+  z-index: 5;
+  top: 148px;
+  left: 88px;
+  width: 440px;
+  min-height: 220px;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 38px 46px;
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 700 2.15rem/0.98 var(--display);
+  letter-spacing: -0.04em;
+  box-shadow: 0 16px 0 rgba(24, 35, 43, 0.18);
+  transform: rotate(-6deg);
+  transition:
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+.final-note:hover {
+  box-shadow: 0 22px 0 rgba(24, 35, 43, 0.14);
+  transform: translateY(-6px) rotate(-3deg);
+}
+.final-note small {
+  font: 700 0.65rem/1.2 var(--sans);
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.final-note-text {
+  display: block;
+  white-space: pre-line;
+  transition: opacity 0.18s;
+}
+.final-note-text.is-changing {
+  opacity: 0;
+}
+.final-orbit {
+  position: absolute;
+  z-index: 0;
+  top: 170px;
+  left: -100px;
+  width: 300px;
+  height: 400px;
+  overflow: visible;
+  fill: none;
+  stroke: rgba(217, 238, 124, 0.68);
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+.final-shape {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  transition: transform 0.28s ease;
+}
+.final-shape-orange {
+  top: 224px;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.final-shape-orange:hover {
+  transform: translateY(-6px) scale(1.06);
+}
+.final-shape-acid {
+  top: 94px;
+  left: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--acid);
+  transform: rotate(18deg);
+}
+.final-shape-acid:hover {
+  transform: translateY(-6px) rotate(25deg) scale(1.06);
+}
+.final-shape-paper {
+  top: auto;
+  right: 22px;
+  bottom: 4px;
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: var(--paper);
+  transform: rotate(-25deg);
+}
+.final-shape-paper:hover {
+  transform: translateY(-6px) rotate(-17deg) scale(1.05);
+}
+.final-shape-lilac {
+  right: auto;
+  bottom: 2px;
+  left: 2px;
+  width: 65px;
+  height: 65px;
+  border-radius: 38px 8px 8px;
+  background: #9eacf4;
+}
+.final-shape-lilac:hover {
+  transform: translateY(-6px) rotate(7deg) scale(1.05);
 }
 .cta-orbit {
   position: relative;
-  width: 320px;
-  height: 165px;
+  z-index: 6;
+  width: 276px;
+  min-height: 62px;
+  margin-top: 28px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: transparent;
-  color: white;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px 8px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--acid);
+  color: var(--ink);
   text-decoration: none;
+  box-shadow: none;
+  transform: none;
   transition:
-    background 0.2s,
-    transform 0.2s;
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
 }
 .cta-orbit:hover {
-  transform: translateY(-3px);
+  background: var(--acid);
+  box-shadow: none;
+  transform: translateY(-4px);
 }
-.cta-orbit span {
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
+.cta-orbit .cta-label {
+  font: 700 0.95rem/1 var(--display);
+  letter-spacing: -0.025em;
 }
 .cta-orbit strong {
-  color: var(--acid);
-  font-size: 1.5rem;
+  position: relative;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  margin-right: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0;
   font-weight: 400;
+  transition: transform 0.2s;
+}
+.cta-orbit strong svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.2;
+}
+.cta-orbit:hover strong {
+  transform: translateX(4px);
 }
 
 .site-footer {
