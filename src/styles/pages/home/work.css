@@ -292,12 +292,15 @@
   position: static;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   filter: none;
 }
 .curry-page-render {
   padding: 0;
+}
+.curry-mobile-hero {
+  display: none;
 }
 
 .project-pair {

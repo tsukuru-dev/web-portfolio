@@ -70,6 +70,48 @@
 }
 
 @media (max-width: 950px) {
+  .curry-page-render > .curry-hero-image {
+    display: none;
+  }
+  .curry-mobile-hero {
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    padding: clamp(22px, 5vw, 44px);
+    color: #392218;
+  }
+  .curry-mobile-hero > p {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 14px;
+    font-size: clamp(0.54rem, 1.25vw, 0.72rem);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .curry-mobile-hero > h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font: 700 clamp(2.4rem, 8vw, 5rem)/0.82 var(--display);
+    letter-spacing: -0.075em;
+  }
+  .curry-mobile-hero > h3 em {
+    color: #b53b28;
+    font-family: var(--serif);
+    font-weight: 600;
+  }
+  .curry-page .curry-mobile-hero > img {
+    position: absolute;
+    right: -6%;
+    bottom: 5%;
+    rotate: 1deg;
+    width: min(108%, 900px);
+    max-width: none;
+    filter: drop-shadow(10px 14px 10px rgba(65, 21, 9, 0.22));
+  }
+
   :root {
     --shell: min(100% - 56px, 1280px);
   }
