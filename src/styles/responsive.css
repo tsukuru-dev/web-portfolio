@@ -137,8 +137,15 @@
     gap: 5px;
   }
   .command-links a {
-    padding: 8px 7px;
-    font-size: 0.62rem;
+    padding: 10px 9px;
+    font-size: 0.72rem;
+  }
+  .command-links .command-home {
+    min-width: 38px;
+  }
+  .command-home svg {
+    width: 18px;
+    height: 18px;
   }
   .command-links a:not(:last-child)::after {
     right: -3px;
@@ -149,9 +156,9 @@
     margin: 0 2px;
   }
   .command-action {
-    padding: 9px 11px;
+    padding: 11px 15px;
     border-radius: 999px;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
   }
   h1 {
     font-size: clamp(3.7rem, 14vw, 5.7rem);
@@ -490,18 +497,18 @@
 
 @media (max-width: 450px) {
   .command-bar {
-    gap: 1px;
-    padding: 3px;
+    gap: 2px;
+    padding: 4px;
   }
   .command-links {
     gap: 2px;
   }
   .command-links a {
-    padding: 7px 4px;
-    font-size: 0.56rem;
+    padding: 9px 6px;
+    font-size: 0.66rem;
   }
   .command-links .command-home {
-    min-width: 28px;
+    min-width: 34px;
   }
   .command-links a:not(:last-child)::after {
     right: -2px;
@@ -511,8 +518,8 @@
     margin: 0 1px;
   }
   .command-action {
-    padding: 8px;
-    font-size: 0.56rem;
+    padding: 10px 11px;
+    font-size: 0.66rem;
   }
   h1 {
     font-size: 3.8rem;
