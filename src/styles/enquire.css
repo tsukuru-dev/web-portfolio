@@ -681,13 +681,48 @@
   transform: scaleX(-1) rotate(-7deg);
   filter: none;
 }
-.form-success-wand {
+.form-success-wand-wrap {
   position: absolute;
   top: -12%;
   right: -5%;
   width: 38%;
-  rotate: -5deg;
+  transform: rotate(-5deg);
+  transform-origin: 84% 82%;
+  animation: success-wand-tap 0.78s cubic-bezier(0.42, 0, 0.2, 1) 0.05s both;
+}
+.form-success-wand {
+  display: block;
+  width: 100%;
   filter: none;
+}
+.form-success-burst {
+  position: absolute;
+  top: -15%;
+  left: 20%;
+  width: 56px;
+  height: 56px;
+  opacity: 0;
+  transform: translate(-68%, -54%) scale(0.45);
+  animation: success-burst-in 0.34s cubic-bezier(0.2, 0.8, 0.2, 1.2) 0.47s both;
+}
+.form-success-burst i {
+  position: absolute;
+  bottom: 13px;
+  left: 26px;
+  width: 4px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--orange);
+  transform-origin: 50% calc(100% + 10px);
+}
+.form-success-burst i:nth-child(1) {
+  transform: rotate(-42deg);
+}
+.form-success-burst i:nth-child(2) {
+  transform: rotate(-7deg);
+}
+.form-success-burst i:nth-child(3) {
+  transform: rotate(30deg);
 }
 .form-success h2 {
   max-width: 540px;
@@ -696,6 +731,8 @@
   font-size: clamp(1.6rem, 3.4vw, 2.8rem);
   line-height: 1.02;
   letter-spacing: -0.05em;
+  opacity: 0;
+  animation: success-copy-in 0.36s ease-out 0.47s both;
 }
 .form-success h2 span {
   display: block;
@@ -705,6 +742,45 @@
   font-size: 0.72em;
   font-style: italic;
   letter-spacing: -0.025em;
+}
+@keyframes success-wand-tap {
+  0%, 18% {
+    transform: rotate(-5deg);
+  }
+  54% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-33deg);
+  }
+}
+@keyframes success-burst-in {
+  0% {
+    opacity: 0;
+    transform: translate(-68%, -54%) scale(0.45);
+  }
+  58%, 100% {
+    opacity: 1;
+    transform: translate(-68%, -54%) scale(1);
+  }
+}
+@keyframes success-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-success-wand-wrap,
+  .form-success-burst,
+  .form-success h2 {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms;
+  }
 }
 .button:disabled {
   cursor: wait;
@@ -818,6 +894,34 @@
   }
 }
 
+@media (min-width: 651px) and (max-width: 900px) and (orientation: portrait) {
+  .form-success {
+    min-height: 650px;
+  }
+  .form-success-art {
+    width: min(460px, 78vw);
+  }
+  .form-success h2 {
+    max-width: 610px;
+    font-size: clamp(2.7rem, 7vw, 3.7rem);
+  }
+  .form-success h2 span {
+    margin-top: 14px;
+    font-size: 0.76em;
+  }
+  .form-success-burst {
+    width: 66px;
+    height: 66px;
+  }
+  .form-success-burst i {
+    bottom: 15px;
+    left: 31px;
+    width: 5px;
+    height: 22px;
+    transform-origin: 50% calc(100% + 12px);
+  }
+}
+
 @media (max-width: 650px) {
   .enquiry-page {
     padding-top: 72px;
@@ -887,8 +991,30 @@
     grid-template-columns: 1fr 1fr;
   }
   .form-success {
-    min-height: 460px;
-    padding: 32px 20px;
+    min-height: 570px;
+    padding: 36px 16px;
+  }
+  .form-success-art {
+    width: min(390px, 112%);
+  }
+  .form-success h2 {
+    max-width: 360px;
+    font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+  .form-success h2 span {
+    margin-top: 14px;
+    font-size: 0.78em;
+  }
+  .form-success-burst {
+    width: 64px;
+    height: 64px;
+  }
+  .form-success-burst i {
+    bottom: 15px;
+    left: 30px;
+    width: 5px;
+    height: 21px;
+    transform-origin: 50% calc(100% + 12px);
   }
   .legal-page {
     padding-top: 140px;
