@@ -635,6 +635,77 @@
 .form-submit .button:hover {
   background: var(--acid);
 }
+.form-submit-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-submit .preview-success-button {
+  border-color: rgba(24, 33, 36, 0.22);
+  background: transparent;
+  color: var(--ink);
+}
+.form-submit .preview-success-button:hover {
+  background: rgba(24, 33, 36, 0.08);
+}
+.form-success[hidden] {
+  display: none;
+}
+.form-success {
+  scroll-margin-top: 48px;
+  min-height: min(560px, 64svh);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 26px;
+  padding: clamp(36px, 7vw, 80px);
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 36, 0.13);
+  border-radius: 22px;
+  background: rgba(255, 241, 212, 0.72);
+  box-shadow: 0 18px 45px rgba(24, 33, 36, 0.08);
+  text-align: center;
+  outline: none;
+}
+.form-success-art {
+  position: relative;
+  width: min(330px, 92%);
+  aspect-ratio: 1.55;
+}
+.form-success-hat {
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 24%;
+  width: 52%;
+  transform: scaleX(-1) rotate(-7deg);
+  filter: none;
+}
+.form-success-wand {
+  position: absolute;
+  top: -12%;
+  right: -5%;
+  width: 38%;
+  rotate: -5deg;
+  filter: none;
+}
+.form-success h2 {
+  max-width: 540px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 3.4vw, 2.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+.form-success h2 span {
+  display: block;
+  margin-top: 10px;
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 0.72em;
+  font-style: italic;
+  letter-spacing: -0.025em;
+}
 .button:disabled {
   cursor: wait;
   opacity: 0.55;
@@ -810,6 +881,14 @@
   }
   .form-submit .button {
     width: 100%;
+  }
+  .form-submit-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-success {
+    min-height: 460px;
+    padding: 32px 20px;
   }
   .legal-page {
     padding-top: 140px;

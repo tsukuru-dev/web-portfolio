@@ -109,11 +109,21 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         </div>
         <div class="form-submit">
           <p>By submitting, you agree that your details can be used to respond to this enquiry. <a href="/privacy/">Privacy notice</a>.</p>
-          <button class="button" type="submit">Send project enquiry <span>&#x2197;&#xFE0E;</span></button>
+          <div class="form-submit-actions">
+            <button class="button preview-success-button" id="preview-success" type="button">Preview success</button>
+            <button class="button" type="submit">Send project enquiry <span>&#x2197;&#xFE0E;</span></button>
+          </div>
         </div>
         <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
         <noscript><p class="form-status">Please enable JavaScript to complete the spam protection and submit your enquiry.</p></noscript>
       </form>
+      <section class="form-success" id="form-success" tabindex="-1" aria-live="polite" hidden>
+        <div class="form-success-art" aria-hidden="true">
+          <img class="form-success-hat" src="/assets/enquiry-success/madhatter-hat.svg" alt="" />
+          <img class="form-success-wand" src="/assets/enquiry-success/wand_with_lime_band.png" alt="" />
+        </div>
+        <h2>Form submitted<span>— We’ll be in touch within 24 hours!</span></h2>
+      </section>
     </section>
   </main>
 
@@ -127,6 +137,10 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <script>
     const form = document.querySelector<HTMLFormElement>('#enquiry-form');
     if (form) {
+      const successState = document.querySelector<HTMLElement>('#form-success')!;
+      const previewSuccess = form.querySelector<HTMLButtonElement>('#preview-success')!;
+      const enquiryAside = document.querySelector<HTMLElement>('.enquiry-aside')!;
+      const finalAsideParagraph = enquiryAside.querySelector<HTMLElement>('li:last-child p')!;
       const projectChecks = [...form.querySelectorAll<HTMLInputElement>('input[name="projectType"]')];
       const projectField = form.querySelector<HTMLElement>('.project-type-field')!;
       const errors = document.querySelector<HTMLElement>('#form-errors')!;
@@ -275,6 +289,30 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         return errors.hidden;
       };
 
+      const syncSuccessHeight = () => {
+        if (successState.hidden || !window.matchMedia('(min-width: 901px)').matches) {
+          successState.style.removeProperty('height');
+          successState.style.removeProperty('min-height');
+          return;
+        }
+        const successTop = successState.getBoundingClientRect().top;
+        const finalParagraphBottom = finalAsideParagraph.getBoundingClientRect().bottom;
+        successState.style.height = `${Math.max(0, Math.round(finalParagraphBottom - successTop + 24))}px`;
+        successState.style.minHeight = '0';
+      };
+
+      const showSuccessState = () => {
+        closeCalendar();
+        form.hidden = true;
+        successState.hidden = false;
+        syncSuccessHeight();
+        successState.focus({ preventScroll: true });
+        successState.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      previewSuccess.addEventListener('click', showSuccessState);
+      window.addEventListener('resize', syncSuccessHeight);
+
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         status.textContent = '';
@@ -294,13 +332,13 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           form.reset();
           updateDeliveryDate();
           clearErrors();
-          status.textContent = 'Enquiry received. We’ll be in touch after reviewing the details.';
           (window as Window & { turnstile?: { reset: () => void } }).turnstile?.reset();
+          showSuccessState();
         } catch (error) {
           status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
         } finally {
           button.disabled = false;
-          status.focus();
+          if (!form.hidden) status.focus();
         }
       });
     }
