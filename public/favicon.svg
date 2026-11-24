@@ -1,12 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="31" fill="#f7f6f1"/>
-  <text
-    x="32"
-    y="53"
-    fill="#526ee8"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="58"
-    font-weight="400"
-    text-anchor="middle"
-  >M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Mad Hatter hat">
+  <defs>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5a18" />
+      <stop offset="1" stop-color="#ff3f0d" />
+    </linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#182027" />
+      <stop offset="1" stop-color="#0d141b" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#orange)" />
+  <path d="M37 78 35 30q0-3 3-4l38-7q3 0 4 3l12 48Z" fill="url(#black)" />
+  <path d="m32 72 59-8 3 13-59 9Z" fill="#eaff42" />
+  <ellipse cx="64" cy="89" rx="47" ry="13" transform="rotate(-6 64 89)" fill="#101820" />
 </svg>
