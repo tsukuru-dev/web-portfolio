@@ -109,10 +109,7 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         </div>
         <div class="form-submit">
           <p>By submitting, you agree that your details can be used to respond to this enquiry. <a href="/privacy/">Privacy notice</a>.</p>
-          <div class="form-submit-actions">
-            <button class="button preview-success-button" id="preview-success" type="button">Preview success</button>
-            <button class="button" type="submit">Send project enquiry <span>&#x2197;&#xFE0E;</span></button>
-          </div>
+          <button class="button" type="submit">Send project enquiry <span>&#x2197;&#xFE0E;</span></button>
         </div>
         <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
         <noscript><p class="form-status">Please enable JavaScript to complete the spam protection and submit your enquiry.</p></noscript>
@@ -141,7 +138,6 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     const form = document.querySelector<HTMLFormElement>('#enquiry-form');
     if (form) {
       const successState = document.querySelector<HTMLElement>('#form-success')!;
-      const previewSuccess = form.querySelector<HTMLButtonElement>('#preview-success')!;
       const enquiryAside = document.querySelector<HTMLElement>('.enquiry-aside')!;
       const finalAsideParagraph = enquiryAside.querySelector<HTMLElement>('li:last-child p')!;
       const projectChecks = [...form.querySelectorAll<HTMLInputElement>('input[name="projectType"]')];
@@ -313,7 +309,6 @@ const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         successState.scrollIntoView({ behavior: 'smooth', block: 'start' });
       };
 
-      previewSuccess.addEventListener('click', showSuccessState);
       window.addEventListener('resize', syncSuccessHeight);
 
       form.addEventListener('submit', async (event) => {
