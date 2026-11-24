@@ -8,7 +8,7 @@ export const projects = {
     url: '', // Add the deployed subdomain here.
   },
   ktNails: {
-    name: 'KT Nails & Spa',
+    name: 'LX Nails & Spa',
     url: '', // Add the deployed subdomain here.
   },
 } as const;

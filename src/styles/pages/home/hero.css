@@ -34,7 +34,8 @@
     box-shadow 0.3s,
     transform 0.3s;
 }
-.studio-art:hover {
+.studio-art:hover,
+.studio-art.is-tapped {
   box-shadow:
     12px 14px 0 rgba(82, 104, 193, 0.1),
     0 28px 60px rgba(28, 42, 75, 0.22);
@@ -114,7 +115,8 @@
   display: inline-block;
   transition: transform 0.22s ease;
 }
-.art-word:hover {
+.art-word:hover,
+.art-word.is-tapped {
   transform: translateY(-6px) scale(1.04);
 }
 .shape-circle {
@@ -127,7 +129,8 @@
   right: 7%;
   transition: transform 0.28s ease;
 }
-.shape-circle:hover {
+.shape-circle:hover,
+.shape-circle.is-tapped {
   transform: translateX(13px);
 }
 .shape-card {
@@ -141,7 +144,8 @@
   transform: rotate(13deg);
   transition: transform 0.28s ease;
 }
-.shape-card:hover {
+.shape-card:hover,
+.shape-card.is-tapped {
   transform: rotate(-7deg);
 }
 .shape-line {

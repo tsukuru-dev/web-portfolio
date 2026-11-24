@@ -130,7 +130,7 @@ const caseStudies = {
     ],
   },
   nails: {
-    name: 'KT Nails & Spa',
+    name: 'LX Nails & Spa',
     images: [
       '/projects/kt-nails/nails_fullhomepage.jpeg',
       '/projects/kt-nails/manicure.png',
@@ -377,9 +377,9 @@ const caseStudies = {
                 <strong>Make room<br />for <em>me-time.</em></strong>
               </div>
               <div class="nails-photo">
-                <img src="/projects/kt-nails/manicure.png" alt="French manicure created for the KT Nails website" loading="lazy" />
+                <img src="/projects/kt-nails/manicure.png" alt="French manicure created for the LX Nails website" loading="lazy" />
               </div>
-              <div class="nails-brand">KT <em>Nails & Spa</em></div>
+              <div class="nails-brand">LX <em>Nails & Spa</em></div>
               <button class="project-status" type="button" data-case-study="nails">Open case study</button>
             </div>
             <div class="project-info compact">
@@ -856,8 +856,24 @@ const caseStudies = {
       noteObserver.observe(finalNote);
     }
 
+    document.querySelectorAll<HTMLElement>('.studio-art, .art-word, .shape-circle, .shape-card, .final-hat, .final-note, .final-shape, .cta-orbit').forEach((interactive) => {
+      let tapTimer = 0;
+      interactive.addEventListener('pointerdown', () => {
+        interactive.classList.remove('is-tapped');
+        void interactive.offsetWidth;
+        interactive.classList.add('is-tapped');
+        window.clearTimeout(tapTimer);
+        tapTimer = window.setTimeout(() => interactive.classList.remove('is-tapped'), 650);
+      });
+    });
+
     document.querySelectorAll<HTMLElement>('.shape-line i').forEach((line) => {
       line.addEventListener('pointerenter', () => {
+        line.classList.remove('is-swinging');
+        void line.offsetWidth;
+        line.classList.add('is-swinging');
+      });
+      line.addEventListener('pointerdown', () => {
         line.classList.remove('is-swinging');
         void line.offsetWidth;
         line.classList.add('is-swinging');

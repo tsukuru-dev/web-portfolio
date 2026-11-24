@@ -86,6 +86,7 @@
   transform-origin: 82% 72%;
 }
 .final-hat:hover .final-hat-shape,
+.final-hat.is-tapped .final-hat-shape,
 .final-hat:focus-visible .final-hat-shape {
   animation: final-hat-pulse 0.5s ease-out forwards;
 }
@@ -125,7 +126,8 @@
     box-shadow 0.28s ease,
     transform 0.28s ease;
 }
-.final-note:hover {
+.final-note:hover,
+.final-note.is-tapped {
   box-shadow: 0 22px 0 rgba(24, 33, 36, 0.14);
   transform: translateY(-6px) rotate(-3deg);
 }
@@ -173,7 +175,8 @@
   border-radius: 50%;
   background: var(--orange);
 }
-.final-shape-orange:hover {
+.final-shape-orange:hover,
+.final-shape-orange.is-tapped {
   transform: translateY(-6px) scale(1.06);
 }
 .final-shape-acid {
@@ -185,7 +188,8 @@
   background: var(--acid);
   transform: rotate(18deg);
 }
-.final-shape-acid:hover {
+.final-shape-acid:hover,
+.final-shape-acid.is-tapped {
   transform: translateY(-6px) rotate(25deg) scale(1.06);
 }
 .final-shape-paper {
@@ -198,7 +202,8 @@
   background: var(--paper);
   transform: rotate(-25deg);
 }
-.final-shape-paper:hover {
+.final-shape-paper:hover,
+.final-shape-paper.is-tapped {
   transform: translateY(-6px) rotate(-17deg) scale(1.05);
 }
 .final-shape-lilac {
@@ -210,7 +215,8 @@
   border-radius: 38px 8px 8px;
   background: #9ea2cb;
 }
-.final-shape-lilac:hover {
+.final-shape-lilac:hover,
+.final-shape-lilac.is-tapped {
   transform: translateY(-6px) rotate(7deg) scale(1.05);
 }
 .cta-orbit {
@@ -235,7 +241,8 @@
     box-shadow 0.28s ease,
     transform 0.28s ease;
 }
-.cta-orbit:hover {
+.cta-orbit:hover,
+.cta-orbit.is-tapped {
   background: var(--acid);
   box-shadow: none;
   transform: translateY(-4px);
@@ -268,7 +275,8 @@
   stroke-linejoin: round;
   stroke-width: 3.2;
 }
-.cta-orbit:hover strong {
+.cta-orbit:hover strong,
+.cta-orbit.is-tapped strong {
   transform: translateX(4px);
 }
 

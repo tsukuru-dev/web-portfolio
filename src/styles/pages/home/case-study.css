@@ -31,8 +31,15 @@
   border: 0;
   background: transparent;
   color: var(--ink);
+  appearance: none;
+  outline: none;
   cursor: pointer;
   transition: transform 0.2s;
+}
+.case-study-close:focus,
+.case-study-close:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 .case-study-close:hover {
   transform: scale(1.1);
