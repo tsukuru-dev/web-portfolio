@@ -597,10 +597,12 @@ const caseStudies = {
           if (website) {
             if (study.url) {
               website.href = study.url;
+              website.hidden = false;
               website.removeAttribute('aria-disabled');
               website.classList.remove('is-disabled');
             } else {
               website.removeAttribute('href');
+              website.hidden = true;
               website.setAttribute('aria-disabled', 'true');
               website.classList.add('is-disabled');
             }
