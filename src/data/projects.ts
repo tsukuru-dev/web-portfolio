@@ -5,7 +5,7 @@ export const projects = {
   },
   fjdAutos: {
     name: 'FJD Autos',
-    url: 'https://fjdautossamplesite.madhatterstudio.co.uk',
+    url: 'https://fjdsamplesite.madhatterstudio.co.uk',
   },
   ktNails: {
     name: 'LX Nails & Spa',
